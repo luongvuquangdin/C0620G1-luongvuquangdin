@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng chuyển đổi tiền tệ</title>
+    <script src="UngDungChuyenDoiTienTe.js"></script>
+</head>
+<body>
+<form>
+    <label style="margin-left: 65px">Amout</label>
+    <label style="margin-left: 110px">From Currency</label>
+    <label style="margin-left: 50px">To Currency</label>
+    <br>
+    <input id="Amount" type="text" name="Amout">
+    <select id="Fromcurrency" style="width: 120px; margin-left: 30px">
+        <option id="Dollas" value="USD">USD</option>
+        <option id="Vietnam" value="Vietnam">VietNam</option>
+    </select>
+    <select id="Tocurrency" style="width: 100px; margin-left: 30px">
+        <option id="Vnam" value="Vietnam">VietNam</option>
+        <option id="Dllas" value="USD">USD</option>
+    </select>
+    <input style="margin-left: 30px" type="button" value="Convert" onclick="chuyenDoiTienTe()">
+    <p id="convert"></p>
+</form>
+</body>
+</html>

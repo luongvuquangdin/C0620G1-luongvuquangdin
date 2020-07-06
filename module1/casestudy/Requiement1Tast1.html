@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let ten=prompt("Nhập tên");
+    let idCard=prompt("Nhập CMND");
+    let dateOfBirth=prompt("Nhập ngày sinh");
+    let email=prompt("Nhập Email");
+    let address=prompt("Nhập địa chỉ");
+    let customer=prompt("Nhập loại Customer:\nDiamond, Platinum, Gold, Silver, Member");
+    let giamGia=prompt("Phần trăm giảm giá:\nGiá trị từ 1- 100");
+    let soLuong=prompt("Số lượng đi kèm");
+    let rentDays=prompt("Nhập số ngày thuê");
+    let typeOfService=prompt("Nhập loại dịch vụ:\nVilla:500$/1 ngày\nHouse:300$/1 ngày\nRoom:100$/1 ngày");
+    let kindOfRoom=prompt("Nhập loại phòng:\nVip, Business,  Normal");
+    let Monney;
+    if (typeOfService==="Villa"){
+        Monney=500;
+    }else if (typeOfService==="House"){
+        Monney=300;
+    }else {
+        Monney=100;
+    }
+    alert("Tên khách hàng: "+ten+"\n"+"Số CMND: "+idCard+"\n"+"Ngày sinh: "+dateOfBirth+"\n"+"Email: "+email+"\n"+
+        "Địa chỉ: "+address+"\n"+ "Loại Customer: "+customer+"\n"+"Phần trăm giảm giá: "+giamGia+"%"+
+        "\n"+"Số lượng đi kèm: "+soLuong+"\n"+ "Số ngày thuê: "+rentDays+"\n"+"Loại dịch vụ: "+typeOfService+"\n"+
+        "Loại phòng: "+kindOfRoom+"\n"+"Số tiền phải trả là: "+
+        (parseInt(Monney)*parseInt(rentDays)*(1-(parseInt(giamGia)/100)))+"$")
+</script>
+</body>
+</html>
