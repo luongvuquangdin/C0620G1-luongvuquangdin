@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" name="button" value="Đăng nhập vào hệ thông" onclick="login()">
+<script>
+    function login(){
+        let usename=prompt("Tên đăng nhập:");
+        if (usename==="Admin") {
+            let password;
+            password = prompt("Nhập mật khẩu:");
+            if (password === "TheMaster") alert("Welcome.")
+            else if (password === null) alert("Canceled")
+                else alert("Wrong password.")
+            }
+
+        else if (usename===null) alert("canceld")
+            else alert("I don’t know you")
+
+    }
+</script>
+</body>
+</html>

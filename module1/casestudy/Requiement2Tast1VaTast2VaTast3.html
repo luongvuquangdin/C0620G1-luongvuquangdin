@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//Thông tin đầu
+    let ten="Lương Đin";
+    let idCard=212450450;
+    let dateOfBirth="02-17-1996";
+    let email="luongvuquangdin@gmail.com";
+    let address="Đà Nẵng";
+    let customer="Diamond";
+    let giamGia=10;
+    let soLuong=10;
+    let rentDays=12;
+    let typeOfService="Villa";
+    let kindOfRoom="vip";
+    let monney;
+    let amountCustomer
+//Tính Customer phải chi trả
+    function tinh() {
+        // Lấy độ tuổi
+        let currentYear = new Date().getFullYear();
+        let birthday = new Date(dateOfBirth).getFullYear();
+        let ageCustomer = currentYear - birthday;
+        //
+        //Lấy giá loại dịch vụ
+        if (typeOfService==="Villa"){
+            monney=500;
+        }else if (typeOfService==="House"){
+            monney=300;
+        }else {
+            monney=100;
+        }
+        let amount=(parseInt(monney)*parseInt(rentDays)*(1-(parseInt(giamGia)/100)));
+        //
+        // Lấy số tiền giảm giá
+        let monneysale=0;
+        if (address==="Đà Nẵng"){
+            if (ageCustomer>=30){
+                monneysale+=22;
+            }
+            else {
+                if (ageCustomer>=20)monneysale+=21;
+                else monneysale+=20;
+            }
+        }else {
+            if (address==="Huế") monneysale+=10;
+            else {if (address==="Quảng Nam") monneysale+=5;
+            }
+        }
+        switch (customer) {
+            case "Diamond":
+                monneysale+=15;
+                break;
+            case "Platium":
+                monneysale+=10;
+                break;
+            case "Gold":
+                monneysale+=5;
+                break;
+            case "Silver":
+                monneysale+=2;
+                break;
+            case "Member":
+                monneysale+=1;
+                break;
+        }
+        (rentDays>=7)?monneysale+=30:(rentDays>=5)?monneysale+=20:monneysale+=10;
+        amountCustomer=amount-monneysale;
+        //
+    }
+    menu()
+    function show() {
+        tinh()
+        alert("1.Tên khách hàng: "+ten+"\n"+"2.Số CMND: "+idCard+"\n"+
+            "3.Ngày sinh: "+dateOfBirth+"\n"+"4.Email: "+email+"\n"+"5.Địa chỉ: "+address+"\n"+
+            "6.Loại Customer: "+customer+"\n"+"7.Phần trăm giảm giá: "+giamGia+"%"+ "\n"+
+            "8.Số lượng đi kèm: "+soLuong+"\n"+ "9.Số ngày thuê: "+rentDays+"\n"+"10.Loại dịch vụ: "+typeOfService+"\n"+
+            "11.Loại phòng: "+kindOfRoom+"\n"+"12.Số tiền Customer phải trả là: "+amountCustomer+"$");
+        menu();
+    }
+    function menu() {
+        let choose=prompt("Nhập thao tác muốn thực hiện:\n1.show\n2.edit");
+        switch (choose) {
+            case "1":
+                show();
+                break;
+            case "2":
+                edit();
+                break;
+            default:
+                alert("false");
+                break;
+        }
+            menu();
+        }
+    function edit() {
+        tinh()
+        let choose=prompt("1.Tên khách hàng: "+ten+"\n"+"2.Số CMND: "+idCard+"\n"+
+            "3.Ngày sinh: "+dateOfBirth+"\n"+"4.Email: "+email+"\n"+"5.Địa chỉ: "+address+"\n"+
+            "6.Loại Customer: "+customer+"\n"+"7.Phần trăm giảm giá: "+giamGia+"%"+ "\n"+
+            "8.Số lượng đi kèm: "+soLuong+"\n"+ "9.Số ngày thuê: "+rentDays+"\n"+"10.Loại dịch vụ: "+typeOfService+"\n"+
+            "11.Loại phòng: "+kindOfRoom+"\n"+"12.Số tiền Customer phải trả là: "+amountCustomer+"$")
+        switch (choose){
+            case "1":
+            ten=prompt("Nhập lại tên:");
+            break;
+        case "2":
+            idCard=prompt("Nhập lại CMND");
+            break;
+        case "3":
+            dateOfBirth=prompt("Nhập lại ngày sinh:");
+            break;
+        case "4":
+            email=prompt("Nhập lại email:");
+            break;
+        case "5":
+            address=prompt("Nhập lại địa chỉ:");
+            break;
+        case "6":
+            customer=prompt("Nhập lại loại customer:\nDiamond, Platinum, Gold, Silver, Member");
+            break;
+        case "7":
+            giamGia=prompt("Nhập lại giảm giá:");
+            break;
+        case "8":
+            soLuong=prompt("Nhập lại số lượng:");
+            break;
+        case "9":
+            rentDays=prompt("Nhập lại số ngày thuê:");
+            break;
+        case "10":
+            typeOfService=prompt("Nhập lại loại dịch vụ:\nVilla:500$/1 ngày\nHouse:300$/1 ngày\nRoom:100$/1 ngày");
+            break;
+        case "11":
+            kindOfRoom=prompt("Nhập lại loại phòng:\nVip, Business,  Normal");
+            break;
+            default:
+                alert("false");
+                break;
+        }
+        show()
+    }
+</script>
+</body>
+</html>

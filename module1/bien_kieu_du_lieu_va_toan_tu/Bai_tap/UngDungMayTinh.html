@@ -62,29 +62,39 @@
     }
 </script>
 -->
-<!-- Máy tính nâng cao
-<form name="calculator">
-    <input type="textfield" name="ans" style="width: 205px;margin-bottom: 5px;text-align: right">
-    <br>
-    <input type="button" value="1" onClick="document.calculator.ans.value+='1'">
-    <input type="button" value="2" onClick="document.calculator.ans.value+='2'">
-    <input type="button" value="3" onClick="document.calculator.ans.value+='3'">
-    <input type="button" value="+" onClick="document.calculator.ans.value+='+'" style="margin-bottom: 4px">
-    <br>
-    <input type="button" value="4" onClick="document.calculator.ans.value+='4'">
-    <input type="button" value="5" onClick="document.calculator.ans.value+='5'">
-    <input type="button" value="6" onClick="document.calculator.ans.value+='6'">
-    <input type="button" value="-" onClick="document.calculator.ans.value+='-'" style="margin-bottom: 4px">
-    <br>
-    <input type="button" value="7" onClick="document.calculator.ans.value+='7'">
-    <input type="button" value="8" onClick="document.calculator.ans.value+='8'">
-    <input type="button" value="9" onClick="document.calculator.ans.value+='9'">
-    <input type="button" value="*" onClick="document.calculator.ans.value+='*'" style="margin-bottom: 4px">
-    <br>
-    <input type="button" value="0" onClick="document.calculator.ans.value+='0'">
-    <input type="reset" value="Reset">
-    <input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
-</form>
--->
+<div style=" width: 210px">
+    <form name="form">
+        <fieldset >
+            <input type="text" id="windown" name="windown"value="" style="text-align: right;width: 170px; height: 35px; font-size: 20px"><br>
+            <input type="button" value="1" onclick="nhap(this.value)" style="width: 40px; height: 40px">
+            <input type="button" value="2" onclick="nhap(this.value)"style="width: 40px; height: 40px">
+            <input type="button" value="3" onclick="nhap(this.value)"style="width: 40px; height: 40px">
+            <input type="button" value="+" onclick="nhap(this.value)"style="width: 40px; height: 40px"><br>
+            <input type="button" value="4" onclick="nhap(this.value)"style="width: 40px; height: 40px">
+            <input type="button" value="5" onclick="nhap(this.value)"style="width: 40px; height: 40px">
+            <input type="button" value="6" onclick="nhap(this.value)"style="width: 40px; height: 40px">
+            <input type="button" value="-" onclick="nhap(this.value)"style="width: 40px; height: 40px"><br>
+            <input type="button" value="7" onclick="nhap(this.value)"style="width: 40px; height: 40px">
+            <input type="button" value="8" onclick="nhap(this.value)"style="width: 40px; height: 40px">
+            <input type="button" value="9" onclick="nhap(this.value)"style="width: 40px; height: 40px">
+            <input type="button" value="*" onclick="nhap(this.value)"style="width: 40px; height: 40px"><br>
+            <input type="reset" value="C" onclick="nhap(this.value)"style="width: 40px; height: 40px">
+            <input type="button" value="0" onclick="nhap(this.value)"style="width: 40px; height: 40px">
+            <input type="button" value="=" onclick="bang()" style="width: 40px; height: 40px">
+            <input type="button" value="/" onclick="nhap(this.value)"style="width: 40px; height: 40px"><br>
+        </fieldset>
+    </form>
+</div>
+<script>
+    function nhap(giaTri) {
+        document.getElementById("windown").value +=giaTri;
+    }
+    function bang() {
+        let string = document.getElementById("windown").value;
+        result=eval(string);
+        document.getElementById("windown").value =result;
+    }
+
+</script>
 </body>
 </html>
