@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    chuyen();
+
+    function chuyen() {
+        let choose = parseInt(prompt("Bạn muốn chuyển từ :\n1.mét sang feet\n2.feet sang mét"));
+        let length;
+        switch (choose) {
+            case (1):
+                length = parseInt(prompt("Nhập mét"));
+                alert("feet bằng:" + "\n" + length / 3.2808);
+                break;
+            case (2):
+                length = parseInt(prompt("Nhập feet"));
+                alert("mét bằng:" + "\n" + length * 3.2808);
+                break;
+            default:
+                alert("Lựa chọn của bạn không có");
+                break;
+        }
+        chuyen();
+    }
+</script>
+</body>
+</html>

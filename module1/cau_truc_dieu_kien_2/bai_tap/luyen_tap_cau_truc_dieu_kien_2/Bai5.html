@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    acreage();
+
+    function acreage() {
+        let canhA = parseInt(prompt("Nhập vào chiều dài cạnh kề thứ nhất của tam giác vuông:"));
+        let canhB = parseInt(prompt("Nhập vào chiều dài cạnh kề thứ hai của tam giác vuông:"));
+        if ((canhA > 0) && (canhB > 0))
+            alert("diện tích hình tam giác vuông là" + "\n" + (canhA * canhB) / 2);
+        else {
+            if ((canhA < 0) && (canhB < 0)) {
+                alert("Giá trị chiều dài cạnh kề thứ nhất và chiều dài cạnh kề thứ hai sai")
+            } else {
+                if ((canhA < 0) && (canhB > 0))
+                    alert("Giá trị chiều dài sai");
+                else
+                    alert("giá chiều dài cạnh kề thứ hai sai");
+            }
+        }
+
+        acreage();
+    }
+</script>
+</body>
+</html>

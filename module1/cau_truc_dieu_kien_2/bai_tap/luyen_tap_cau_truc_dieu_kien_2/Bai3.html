@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    acreage();
+    function acreage(){
+        let canhA=parseInt(prompt("Nhập vào chiều dài cạnh của hình vuông:"));
+        if (canhA>0)
+            alert("diện tích hình vuông là"+"\n"+(canhA*canhA));
+        else
+            alert("Giá trị bạn nhập sai");
+
+        acreage();
+    }
+
+</script>
+</body>
+</html>

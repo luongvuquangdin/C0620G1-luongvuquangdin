@@ -5,9 +5,25 @@
     <title>Title</title>
 </head>
 <script>
-    function menu() {
-        prompt(1.)
+    nhietDoChuyen();
 
+    function nhietDoChuyen() {
+        let choose = parseInt(prompt("Bạn muốn chuyển từ :\n1.Độ C sang độ F\n2.Độ F sang độ C"));
+        let nhietDo;
+        switch (choose) {
+            case (1):
+                nhietDo = parseInt(prompt("Nhập độ C"));
+                alert("Độ F là:" + "\n" + (nhietDo * 9 / 5 + 32));
+                break;
+            case (2):
+                nhietDo = parseInt(prompt("Nhập độ F"));
+                alert("Độ C là:" + "\n" + ((nhietDo - 32) / (9 / 5)));
+                break;
+            default:
+                alert("Lựa chọn của bạn không có");
+                break;
+        }
+        nhietDoChuyen();
     }
 </script>
 <body>

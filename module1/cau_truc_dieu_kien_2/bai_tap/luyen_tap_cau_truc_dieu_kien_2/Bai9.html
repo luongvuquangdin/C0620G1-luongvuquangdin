@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    tinh();
+
+    function tinh() {
+        let a = Number(prompt("Nhập vào số a"));
+        let b = Number(prompt("Nhập vào số b"));
+        let c = Number(prompt("Nhập vào số c"));
+        if ((a > 0) && (b > 0) && (c > 0)) {
+            if ((a + b) > c) {
+                if ((b + c) > a) {
+                    if ((a + c) > b)
+                        alert(a + "," + b + "," + c + "là 3 cạnh của một tam giác");
+                    else
+                        alert(a + "," + b + "," + c + "không phải là 3 cạnh của một tam giác");
+                    } else
+                        alert(a + "," + b + "," + c + "không phải là 3 cạnh của một tam giác");
+                } else
+                    alert(a + "," + b + "," + c + "không phải là 3 cạnh của một tam giác");
+            } else
+                alert(a + "," + b + "," + c + "không phải là 3 cạnh của một tam giác");
+        }
+</script>
+</body>
+</html>

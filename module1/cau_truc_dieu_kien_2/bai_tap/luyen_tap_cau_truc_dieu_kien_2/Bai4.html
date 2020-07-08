@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    acreage();
+
+    function acreage() {
+        let canhA = parseInt(prompt("Nhập vào chiều dài của hình chữ nhật:"));
+        let canhB = parseInt(prompt("Nhập vào chiều rộng của hình chữ nhât:"));
+        if ((canhA > 0) && (canhB > 0))
+            alert("diện tích hình chữ nhật là" + "\n" + (canhA * canhB));
+        else {
+            if ((canhA < 0) && (canhB < 0)) {
+                alert("Giá trị chiều dài và chiều rộng sai")
+            } else {
+                if ((canhA < 0) && (canhB > 0))
+                    alert("Giá trị chiều dài sai");
+                else
+                    alert("giá trị chiều rộng sai");
+            }
+        }
+
+    acreage();
+    }
+</script>
+</body>
+</html>
