@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let part = prompt("Nhập điểm kiểm tra:");
+    let mid = prompt("Nhập điểm kiểm tra giữa kỳ:");
+    let last = prompt("Nhập điểm thi cuối kỳ:");
+    let medium = (parseInt(part) + parseInt(mid) * 2 + parseInt(last) * 3) / 6;
+    if (medium >= 8)
+        alert("Xếp loại giỏi");
+    else if (medium >= 5)
+        alert("Xếp loại khá");
+    else if (medium >= 3)
+        alert("Xếp loại Trung bình");
+    else
+        alert("xếp loại yếu");
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let phutGoiNoiMang = parseInt(prompt("Nhập số phút gọi nội mạng:"));
+    let phutGoiNgoaiMang = parseInt(prompt("Nhập số phút gọi ngoại mạng:"));
+    let cuocGoiNoiMang = 2000;
+    let cuocGoiNgoaiMang = 3000;
+    let giamGiaCuocNoiMang;
+    let giamGiaCuocNgoaiMang;
+
+    if (phutGoiNgoaiMang >= 100){
+        giamGiaCuocNgoaiMang = 10 / 100;
+    }
+    else {
+        if (phutGoiNgoaiMang >= 50)
+            giamGiaCuocNgoaiMang = 5 / 100;
+        else
+            giamGiaCuocNgoaiMang = 0;
+    }
+
+    if (phutGoiNoiMang >= 100) {
+        giamGiaCuocNoiMang = 5 / 100;
+    }
+    else {
+        if (phutGoiNoiMang >= 50)
+            giamGiaCuocNoiMang = 1 / 100;
+        else
+            giamGiaCuocNoiMang = 0 ;
+    }
+    let tongTienCuoc = phutGoiNoiMang*cuocGoiNoiMang+phutGoiNgoaiMang*cuocGoiNgoaiMang;
+    let tienCuocGiam = phutGoiNgoaiMang*giamGiaCuocNgoaiMang+phutGoiNoiMang*giamGiaCuocNoiMang;
+    let tongTienCuocPhaiTr = tongTienCuoc - tienCuocGiam;
+    alert("số tiền cước phải trả là" + tongTienCuocPhaiTr);
+</script>
+</body>
+</html>

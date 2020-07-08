@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function yesClick() {
+            alert("<3");
+        }
+
+        function noOver() {
+            //Lấy giá trị của chiều ngang
+            let x =Math.round(Math.random() * window.innerWidth);
+            //Lấy giá trị của chiều dai
+            let y =Math.round(Math.random() * window.innerHeight);
+            document.getElementById("no").style.left = x + 'px';
+            document.getElementById("no").style.top = y + 'px';
+
+        }
+    </script>
+</head>
+<body>
+<h1>Do you love me</h1>
+<input type="button" value="YES" onclick="yesClick()">
+<input id="no" type="button" value="NO" onmouseover="noOver()" style="position: relative">
+</body>
+</html>
