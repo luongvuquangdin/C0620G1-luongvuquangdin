@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    tinhThue();
+    function tinhThue(){
+        let tienLuong=Number(prompt("Nhập thu nhập một tháng của:"));
+        let phanTram;
+        if (tienLuong>80000000){
+            phanTram=35/100;
+        }else if(tienLuong>52000000){
+            phanTram=30/100;
+        }else if(tienLuong>32000000){
+            phanTram=25/100;
+        }else if(tienLuong>18000000){
+            phanTram=20/100;
+        }else if (tienLuong>10000000){
+            phanTram=15/100;
+        }else if (tienLuong>5000000){
+            phanTram=10/100;
+        }else {
+            phanTram=5/100;
+        }
+    alert("Tiền thuế bạn phải nộp là:\n"+(tienLuong*phanTram)+"VND");
+        tinhThue();
+    }
+</script>
+</body>
+</html>

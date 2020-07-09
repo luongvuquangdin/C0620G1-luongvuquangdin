@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num = Number(prompt("Enter a number: "));
+    let total = 0;
+    while( num != -1 ) {
+        document.write("Số đã nhập là"+num+"<br>");
+        //phần code tính tổng
+        total += num;
+        num = Number(prompt("Enter a number: "));
+    }
+    document.write("Tổng các số đã nhập là: "+total)
+</script>
+</body>
+</html>

@@ -5,6 +5,35 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    tienDien()
 
+    function tienDien() {
+        let soDien = Number(prompt("Nhập Số điện mà nhà bạn sử dụng"));
+        let tongTien;
+        if (soDien < 0)
+            alert("số điện bạn nhập không hợp lệ");
+        else if (soDien >= 401) {
+            tongTien = soDien * 2927;
+            alert("Tiện điện bạn phải trả là"+"\n"+tongTien+"VND");
+        } else if (soDien >= 301) {
+            tongTien = soDien * 2834;
+            alert("Tiện điện bạn phải trả là"+"\n"+tongTien+"VND");
+        } else if (soDien >= 201) {
+            tongTien = soDien * 2536;
+            alert("Tiện điện bạn phải trả là"+"\n"+tongTien+"VND");
+        } else if (soDien >= 101) {
+            tongTien = soDien * 2014;
+            alert("Tiện điện bạn phải trả là"+"\n"+tongTien+"VND");
+        } else if (soDien >= 51) {
+            tongTien = soDien * 1734;
+            alert("Tiện điện bạn phải trả là"+"\n"+tongTien+"VND");
+        } else {
+            tongTien = soDien * 1678;
+            alert("Tiện điện bạn phải trả là"+"\n"+tongTien+"VND");
+        }
+        tienDien();
+    }
+</script>
 </body>
 </html>
