@@ -2,23 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Vẽ trái tim</title>
+    <style>
+
+    </style>
 </head>
 <body>
 <script>
-    let i;
-    let j;
-    for (i = 1; i <7 ; i++) {
-        for (j = 1; j <= 7; j++) {
-            if  ((i==1&&(j==2||j==3||j==5||j==6))||(i==2&&(j==1||j==4||j==7))||
-                (i==3&&(j==1||j==4||j==7))||(i==4&&(j==2||j==6))||(i==5&&(j==3||j==5))||(i==6&&j==4))
-            document.write("*");
-            else {
-                document.write("&nbsp&nbsp");
+    document.write("<table height='333px' width='333px'>");
+    for (let dong = 1; dong <= 7; dong++) {
+        document.write("<tr>");
+        for (let cot = 1; cot <= 7; cot++) {
+            document.write("<td style='color: red'>");
+            if (dong == 1 && (cot == 1 || cot == 7 || cot == 4) ||
+                dong == 5 && (cot == 1 || cot == 7) ||
+                dong == 6 && (cot <= 2 || cot >= 6) ||
+                dong == 7 && (cot <= 3 || cot >= 5)) {
+                document.write(" ")
+            } else {
+                document.write("*");
             }
+            document.write("</td>");
         }
-        document.write("<br>");
+        document.write("</tr>");
     }
+    document.write("</table>");
 </script>
 </body>
 </html>
