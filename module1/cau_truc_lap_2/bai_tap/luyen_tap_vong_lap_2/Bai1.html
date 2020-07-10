@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let dem=parseInt(prompt("Nhập số Finonaci bạn muốn hiển thị:"));
+    let n1=0;
+    let n2=1;
+    let ni;
+    document.write(dem + "số trong dãy số fibonacci là"+"<br>");
+    for (;dem<20;dem++){
+    ni=n2;
+    n2=n2+n1;
+    document.write(n1+"\t");
+    n1=ni;
+    }
+</script>
+</body>
+</html>

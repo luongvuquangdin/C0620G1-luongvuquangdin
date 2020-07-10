@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt("Nhập số lượng số nguyên tố muốn hiển thị"));
+    let dem;
+    let demSoHienRa=1;//Số nguyên tố hiện ra;
+    let demUocCuaSo;//Xem số đang xét có bao nhiều ước
+    let a = 2;
+    for (;demSoHienRa <= number;) {
+        demUocCuaSo=0;
+        //Kiểm tra số nguyên tố
+        for (dem = 1; dem < a;) {
+            if (a % dem === 0) {
+                demUocCuaSo += 1;
+            }
+            dem++;
+        }
+        //
+        if (demUocCuaSo === 1) {
+            document.write(a + "<br>");
+            demSoHienRa=demSoHienRa+1;
+        }
+        a++;
+    }
+  document.getElementById(
+      pa
+  )
+</script>
+</body>
+</html>

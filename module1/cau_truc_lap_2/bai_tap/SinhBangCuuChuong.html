@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x;
+    let y=1;
+    let sout="";
+    let soCot;
+    let soDong =0;
+    sout = "<table border='1' width='1000px'>"
+    for (;soDong<9;soDong++) {
+        for (soCot = 0; soCot < 8; soCot++) {
+            for (; y < 10;){
+                sout = sout + "<tr>";
+            for (x=2;x<10;) {
+                sout = sout + "<td>"+ x + "x" + y + "=" + (x * y) + "</td>";
+                x++;
+            }
+            y++;
+            }
+        }
+        sout = sout + "</tr>";
+    }
+    sout=sout+"</table>";
+    document.write(sout);
+</script>
+</body>
+</html>

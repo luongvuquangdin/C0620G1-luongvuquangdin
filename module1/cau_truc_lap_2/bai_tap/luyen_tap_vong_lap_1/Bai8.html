@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="text-align: center">
+<h1 id="xuatKetQua" style="color: red">TRÒ CHƠI ĐOÁN SỐ</h1>
+<input type="button" id="play" value="Play" style="background: black;color: white;width:310px;height:50px" onclick="game()">
+<script>
+    function game() {
+        let min = parseInt(prompt("Nhập khoảng muốn đoán:" + "\n" + "1.Giá trị Min"));
+        let max = parseInt(prompt("Nhập khoảng muốn đoán:" + "\n" + "2.Giá trị Max"));
+        let i;
+                let soNgauNhien = Math.round(Math.random() * (max - min) + min);
+                for (i = 0; i < 3;) {
+                    let soDuocChon = parseInt(prompt("Nhập số muốn chọn:"));
+                    if (soNgauNhien === soDuocChon) {
+                        document.getElementById("xuatKetQua").innerHTML = "Chúc mừng bạn đã đoán đúng";
+                        break;
+                    } else {
+                        alert("Số bạn đã chọn không đúng với dự đón");
+                        i++;
+                        document.getElementById("xuatKetQua").innerHTML = "Bạn đã thua";
+                    }
+                }
+    }
+</script>
+</body>
+</html>
