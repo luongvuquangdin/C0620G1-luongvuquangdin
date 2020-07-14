@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = prompt("Nhập vào một chuỗi ký tự");
+    let array = new Array();
+    let soChan = "";
+    for (let i=0;i<a.length;i++){
+        soChan+=a.charAt(i);
+        if (i==a.length-1){
+            array.push(soChan);
+            continue;
+        }
+        if (Number(a.charAt(i))%2==0 && Number(a.charAt(i+1))%2==0){
+            array.push(soChan);
+            soChan="";
+        }
+    }
+    document.write(array.join("-"));
+</script>
+</body>
+</html>

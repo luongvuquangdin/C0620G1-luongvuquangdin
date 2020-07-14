@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <input id="english" type="text" name="english" />
+    <label>ENGLISH</label>
+    <br/>
+    <input id="VN" type="text" name="Việt Nam"/>
+    <label>VIỆT NAM</label>
+    <br/>
+    <input type="button" id="button">
+</form>
+<script>
+
+   let a=document.getElementById("button");
+        a.addEventListener("click", function (){
+            let array = ["action", "continuation", "iteration", "statement"];
+            let array1 = ["Hành động", "Tình Trạng", "Lặp lại", "Tuyên bố"];
+            let value = document.getElementById("english");
+            for (let i = 0; i < array.length; i++) {
+                if (value.value.includes(array[i])) {
+                    document.getElementById("VN").value = array1[i];
+                }
+            }
+        });
+
+</script>
+</body>
+</html>

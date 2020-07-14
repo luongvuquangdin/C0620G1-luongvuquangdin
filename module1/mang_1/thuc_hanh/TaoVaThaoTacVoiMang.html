@@ -8,25 +8,34 @@
     </style>
 </head>
 <body>
-<input type="text" id="txtValue"></input>
-<input type="button" id="btnAdd" value="Add" onclick="add_element_to_array();"></input>
-<input type="button" id="btnDisplay" value="Display" onclick="display_array();"></input>
+<input id="txtValue" type="text">
+<input id="btnAdd" onclick="add_element_to_array();" type="button" value="Add">
+<input id="btnDisplay" onclick="display_array();" type="button" value="Display">
+<input onclick="deleteArray()" type="button" value="deleteArray">
 <div id="result"></div>
 <script>
+    let e="";
     let x = 0;
     let array = Array();
     function add_element_to_array() {
         array[x] = document.getElementById("txtValue").value;
         alert("Element: " + array[x] + " Added at index " + x);
         x++;
-        document.getElementById("txtValue ").value = "";
+        document.getElementById("txtValue").value = "";
     }
     function display_array() {
-        let e = "<hr/>";
+        e = "<hr>";
         for (let i = 0; i < array.length; i++) {
             e += "Element " + i + " = " + array[i] + "<br/>";
         }
-        document.getElementById("result").innerHTML = e;
+        return document.getElementById("result").innerHTML = e;
+    }
+    function deleteArray() {
+        for (let a = array.length - 1; a >= 0; a--){
+            array.pop();
+    }
+        x=0;
+        document.getElementById("result").innerHTML="<hr>";
     }
 </script>
 </body>
