@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giai thừa của một số nguyên</title>
+</head>
+<body>
+<script>
+    function tinhGiaiThua(a) {
+        if (a==1){
+            return 1;
+        }
+        return a * tinhGiaiThua(a-1);
+    }
+    let number=parseInt(prompt("Nhập một số nguyên:"))
+    document.write("Số nguyên bạn vừa nhập là: "+number);
+    number1=tinhGiaiThua(number);
+    document.write('<br>Giai thừa của '+number+' bằng: '+number1);
+</script>
+</body>
+</html>

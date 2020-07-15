@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrNameCustomers = ['Tên', 'Số CMND', 'Ngày tháng năm sinh', 'Email', 'Địa chỉ', 'Loại phòng', 'Giảm giá',
+        'Số người đi kèm', 'Số ngày thuê', 'Loại dịch vụ'];
+    menu();
+
+    function menu() {
+        let menu1 = parseInt(prompt("Chọn thao tác muốn thực hiện:\n1.Show Customer\n" +
+            "2.Delete customer"));
+        switch (menu1) {
+            case 1:
+                showCustomer();
+                break;
+            case 2:
+                deleteCustomer();
+                break;
+        }
+    }
+
+    function showCustomer() {
+        let str = '';
+        for (let i = 0; i < arrNameCustomers.length; i++) {
+            str += (i + 1) + '.' + arrNameCustomers[i] + ':\n';
+        }
+        alert(str);
+    }
+
+    function deleteCustomer() {
+        let number = parseInt(prompt('Chọn Customer bạn muốn xóa:\n1.Tên\n2.Số CMND\n3.Ngày tháng năm sinh\n4.Email\n' +
+            '5.Địa chỉ\n6.Loại phòng\n7.Giảm giá\n8.Số người đi kèm\n9.Số ngày thuê\n10.Loại dịch vụ'));
+        switch (number) {
+            case 1:
+                arrNameCustomers.splice(0, 1);
+                break;
+            case 2:
+                arrNameCustomers.splice(1, 1);
+                break;
+            case 3:
+                arrNameCustomers.splice(2, 1);
+                break;
+            case 4:
+                arrNameCustomers.splice(3, 1);
+                break;
+            case 5:
+                arrNameCustomers.splice(4, 1);
+                break;
+            case 6:
+                arrNameCustomers.splice(5, 1);
+                break;
+            case 7:
+                arrNameCustomers.splice(6, 1);
+                break;
+            case 8:
+                arrNameCustomers.splice(7, 1);
+                break;
+            case 9:
+                arrNameCustomers.splice(8, 1);
+                break;
+            case 10:
+                arrNameCustomers.splice(9, 1);
+                break;
+            default:
+                alert("Bạn phải chọn một trong các Customer có trong đây theo số thứ tự được đánh");
+                deleteCustomer();
+                break;
+        }
+        showCustomer();
+    }
+
+</script>
+</body>
+</html>

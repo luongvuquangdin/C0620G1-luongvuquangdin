@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra ký tự số</title>
+</head>
+<body>
+<script>
+    function checkNumber(a) {
+        if (isNaN(a)){
+            return false;
+        }
+        else return true;
+    }
+    let test=prompt("nhập vào một ký tự để kiểm tra có phải là ký tự số hay không");
+    let check=checkNumber(test);
+    alert(check);
+</script>
+</body>
+</html>

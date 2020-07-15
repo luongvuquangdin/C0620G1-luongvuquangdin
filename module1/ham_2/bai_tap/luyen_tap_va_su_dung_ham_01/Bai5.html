@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tên sao và chòm sao tương ưng</title>
+</head>
+<body>
+<script>
+    let star=['Polaris','Aldebaran','Deneb','Vega','Altair','Dubhe','Regulus'];
+    let constellation=['Ursa Minor','Tarurus','Cygnus','Lyra', 'Aquila','Ursa Major','Leo'];//chòm sao
+    document.write("Tên các ngôi sao: "+star.join(",&nbsp;&nbsp;&nbsp")+"<br>");
+    document.write("Tên các chòm sao tương ứng: "+constellation.join(",&nbsp;&nbsp;&nbsp"))
+    function importString(string) {
+        document.write("<br>Tên ngôi sao bạn đã nhập là: "+string)
+        for (let i=0;i<star.length;i++){
+            if (star[i]===string){
+                alert('Ngôi sao bạn vừa nhập thuộc chòm sao: '+constellation[i]);
+                document.write('<br>Ngôi sao bạn vừa nhập thuộc chòm sao: '+constellation[i]);
+                break;
+            }else if (i==star.length-1){
+                alert("Tên ngôi sao bạn đã nhập không có trong chòm sao nào")
+                document.write("<br>Tên ngôi sao bạn đã nhập không có trong chòm sao nào")
+            }
+        }
+    }
+    let str=prompt("Nhập vào tên một ngôi sao")
+    importString(str);
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number=Number(prompt("Nhập vào số thứ nhất:"));
+    let number1=Number(prompt("Nhập vào số thứ hai:"))
+    function check(a,b) {
+        if(a>b){
+            alert("Số thứ nhất là "+a +" lớn hơn số thứ hai là "+b);
+            return "";
+        }else {
+            alert("Vì số thứ nhất là "+a +" không lớn hơn số thứ hai là "+b+" nên tổng hai số vừa nhập là: "+(a+b));
+            return (a+b);
+        }
+    }
+    let sum=check(number,number1);
+    document.write("tổng của hai số vừa nhập là: "+sum);
+</script>
+</body>
+</html>

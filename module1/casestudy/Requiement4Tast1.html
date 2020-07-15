@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    menu();
+
+    //HÀM HIỆN THỊ ĐỂ CHỌN ADD HAY DELETE
+    function menu() {
+        let menu1 = parseInt(prompt("1.Add New Customer\n" +
+            "2.Delete customer"));
+        switch (menu1) {
+            case 1:
+                addNewCustomer();
+                break;
+            case 2:
+                alert("2");
+                break;
+        }
+    }
+
+    //HÀM ADD
+    function addNewCustomer() {
+        //NHẬP SỐ CUSTOMER MUỐN TẠO
+        let length;
+        let customer = "";
+        while (1) {
+            length = Number(prompt("Nhập số lượng Customer muốn thêm vào"));
+            if (isNaN(length) || !Number.isInteger(length)) {
+                continue;
+            }
+            break;
+        }
+
+        //ĐẶT TÊN CHO TỪNG CUSTOMER
+        let arrNameCustomers = new Array(length);
+        let str = "";
+        for (let i = 0; i < arrNameCustomers.length; i++) {
+            arrNameCustomers[i] = prompt("Nhập tên Customer thứ " + (i + 1));
+        }
+
+        //HIỂN THỊ RA CÁC CUSTOMER VỪA TẠO VÀ CHỌN SẮP XẾP NÓ THEO ALPHABEL HAY KHÔNG
+        let a = confirm('Các customer bạn đã nhập là:\n' + arrNameCustomers.join(':\n') +
+            '\nBạn có muốn sắp xếp Customer này theo thứ tự alphabel');
+
+        //CHỌN SẮP XẾP ALPHABEL HOẶC KHÔNG
+        if (a) {
+            alert('Các customer sau khi được sắp xếp theo alphabel:\n' + arrNameCustomers.sort().join(':\n'))
+        } else {
+            alert('Các customer bạn đã nhập là:\n' + arrNameCustomers.join(':\n'));
+        }
+        menu();
+    }
+
+</script>
+</body>
+</html>

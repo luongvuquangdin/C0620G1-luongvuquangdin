@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+<script>
+    function checkNguyenTo(a) {
+        for (let i = 2; i < a; i++) {
+            if (a % i == 0) {
+                return ""
+
+            }
+        }
+        return document.write(a+"&nbsp;&nbsp;&nbsp;");
+    }
+    for (let j=2;j<10000;j++) {
+        checkNguyenTo(j);
+    }
+</script>
+</body>
+</html>

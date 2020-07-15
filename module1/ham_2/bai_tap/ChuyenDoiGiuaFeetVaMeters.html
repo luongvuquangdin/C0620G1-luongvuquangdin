@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi giữa feet mà meters</title>
+</head>
+<body>
+<label>Chuyển đổi giữa feet và meters</label>
+<br>
+<input id="feet" type="number">
+<label>Feet</label>
+<br>
+<input id="meters" type="number">
+<label>Metter</label>
+<script>
+let feet=document.getElementById('feet');
+feet.addEventListener("change", function () {
+document.getElementById('meters').value=feet.value*0.305;
+})
+
+    let meters=document.getElementById('meters');
+meters.addEventListener("change", function () {
+document.getElementById('feet').value=meters.value*3.279;
+})
+</script>
+</body>
+</html>

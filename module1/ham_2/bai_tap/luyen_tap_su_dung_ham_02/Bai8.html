@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Hàm tạo mảng theo tên vào chiều dài
+    function createArray(nameArray, length) {
+        nameArray=new Array(length);
+        for (let i = 0; i < nameArray.length; i++) {
+            while (1) {
+                //kiểm tra xem phần tử vừa nhập có phải số nguyên không
+                nameArray[i] = Number(prompt("Nhập vào phần tử thứ "+i));
+                if (isNaN(nameArray[i]) || !Number.isInteger(nameArray[i])) {
+                    alert("Bạn phải nhập số nguyên");
+                    continue;
+                }
+                break;
+            }
+            //
+        }
+        return nameArray;
+    }
+
+
+
+    //Hàm đảo ngược một mảng
+    function reverse(a){
+        a=a.reverse();
+        return a;
+    }
+    //Nhập chiều dài của mảng muốn tạo;
+    let length;
+    while (1) {
+        // kiểm tra chiều dài của mảng có phải là số nguyên không.
+        length = Number(prompt("Nhập vào số phần tử của mảng muốn tạo:"));
+        if (isNaN(length) || !Number.isInteger(length)) {
+            alert("Bạn phải nhập số nguyên");
+            continue;
+        }
+        break;
+    }
+
+    //Tạo một hàm array với độ dài đã nhập
+    let array;
+    array=createArray(array,length);
+
+    //Ghi ra màng hình hàm đã nhập và sau khi đảo ngược
+    document.write("Mảng vừa tạo là: "+array);
+    document.write("<br>Mảng sau khi đảo ngược là: "+reverse(array));
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi chỗ hai số đã nhập</title>
+</head>
+<body>
+<script>
+    let number;
+    let number1;
+    while (1) {
+        number = Number(prompt("Nhập vào số nguyên thứ nhất 1"));
+        if (isNaN(number) || !Number.isInteger(number)) {
+            alert("Bạn phải nhập số nguyên");
+            continue;
+        }
+        break;
+    }
+    while (1) {
+        number1 = Number(prompt("Nhập vào số nguyên thứ 2"));
+        if (isNaN(number1) || !Number.isInteger(number1)) {
+            alert("Bạn phải nhập số nguyên");
+            continue;
+        }
+        break;
+    }
+    document.write("Hai số nguyên bạn đã nhập là: " + number + ",&nbsp&nbsp" + number1)
+
+    function change(a, b) {
+        let text = a;
+        a = b;
+        b = text;
+        document.write("<br>Hai số nguyên bạn đã nhập khi đổi chỗ là: " + a + ",&nbsp&nbsp" + b);
+    }
+
+    change(number, number1);
+
+</script>
+</body>
+</html>

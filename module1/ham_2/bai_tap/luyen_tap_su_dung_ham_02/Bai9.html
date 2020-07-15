@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Hàm tạo mảng theo tên vào chiều dài
+    function createArray(nameArray) {
+        //Nhập chiều dài của mảng muốn tạo;
+        let length;
+        while (1) {
+            // kiểm tra chiều dài của mảng có phải là số nguyên không.
+            length = Number(prompt("Nhập vào số phần tử của mảng muốn tạo:"));
+            if (isNaN(length) || !Number.isInteger(length)) {
+                alert("Bạn phải nhập số nguyên");
+                continue;
+            }
+            break;
+        }
+
+        nameArray=new Array(length);
+        for (let i = 0; i < nameArray.length; i++) {
+                nameArray[i] = Number(prompt("Nhập vào phần tử thứ "+i));
+            }
+        return nameArray;
+    }
+
+    //Tạo một hàm array với độ dài đã nhập
+    let array;
+    array=createArray(array);
+
+    //Ghi ra màng hình hàm đã nhập
+    alert("Hàm đã nhập là: "+array);
+    document.write("Mảng vừa tạo là: "+array);
+
+    //Nhập vào ký tự muốn tìm kiếm và tìm kiếm
+    function appear(a) {
+        let dem = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == a) {
+                dem += 1;
+            }
+        }
+        if (dem>0){
+            return dem;
+        }
+        return -1;
+    }
+    let string = prompt("Nhập ký tự muốn kiểm tra");
+    document.write("<br>Ký tự muốn tìm trong mảng đã tạo la: " + string);
+    document.write("<br>Ký tự "+string+" xuất hiện "+appear(string)+" lần trong mảng");
+
+
+
+
+</script>
+</body>
+</html>

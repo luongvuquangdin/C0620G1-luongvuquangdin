@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số nhỏ nhất</title>
+</head>
+<body>
+<script>
+    let  number=new Array(3);
+    for (let i=0;i<number.length;i++){
+        while (1){
+            number[i]=Number(prompt("Nhập vào số nguyên "+i));
+            if (isNaN(number[i])||!Number.isInteger(number[i])){
+                alert("Bạn phải nhập số nguyên");
+                continue;
+            }
+            break;
+        }
+    }
+    function searchMin(a) {
+        let min=a[0];
+        for (let i=1;i<3;i++){
+            if (a[i]<min){
+                min=a[i];
+            }
+        }
+        return min;
+    }
+    document.write("Ba giá trị bạn vừa nhập là: "+number.join(",&nbsp;&nbsp;&nbsp"));
+    let min=searchMin(number);
+    document.write("<br>Giá trị nhỏ nhất trong 3 số vừa nhập là: "+min);
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng quản lý sản phẩm</title>
+    <style>
+        td {
+            border-collapse: collapse;
+            border: 1px solid black;
+            width: 190px;
+            height: 50px;
+        }
+        input{
+            background-color: #d61b06;
+
+        }
+        .input1{
+            height: 50px;
+            width: 100px;
+            background-color: #0433ff;
+        }
+    </style>
+</head>
+<body>
+<form id="table">
+    <label>Thêm</label>
+    <br>
+    <input type="button" value="Thêm" onclick="add()">
+</form>
+<script>
+    let array = ['SH 125i/150i', 'Goldwing', 'Future 125 FI', 'CB150R Exmotion'];
+    let array1 = ['70.990.000 VNĐ', '1.200.000.000 VNĐ', 'Từ 30.190.000 VNĐ', '105.000.000 VNĐ'];
+
+    function createTable() {//TẠO NÚT THÊM
+        data = '<input class="input1" type="button" value="Thêm" onclick="add()"><br><br>'+
+                //TẠO BẢNG
+            '<table style="border-collapse: collapse; border:1px solid black;text-align: center">' +
+            '<tr><td>STT</td>' +
+            '<td>Tên sản phẩm</td>' +
+            '<td>Giá</td>' +
+            '<td colspan="2">Chỉnh sửa</td></tr>';
+        for (let i = 0; i < array.length; i++) {
+                    //TẠO THỨ STT
+            data += '<tr><td>' + (i+1) + '</td>' +
+                    //THÔNG TIN SẢN PHẨM TÊN VÀ GIÁ
+                '<td id="name">' + array[i] + '</td>' +
+                '<td id="price">' + array1[i] + '</td>' +
+                    //TẠO NÚT XÓA VÀ NÚT CHỈNH SỬA
+                '<td><input type="button" value="XÓA" style="height: 40px;width: 180px" onclick="delete1(' + i + ')"></td>' +
+                '<td><input type="button" value="SỬA" style="height: 40px;width: 180px" onclick="edit(' + i + ')"></td></tr>';
+        }
+        //HIỂM THỊ TRÊN HTML
+        document.getElementById('table').innerHTML = data;
+    }
+    createTable();
+    //HÀM XÓA 1 PHẦN TỬ
+    function delete1(i) {
+        array.splice(i,1);//XÓA PHẦN TỬ TỪ VỊ TRÍ i VÀ 1 PHẦN TỬ sau i
+        createTable();
+    }
+
+    //HÀM SỬA 1 PHẦN TỬ
+    function edit(i) {
+        let choose=parseInt(prompt('Bạn muốn sửa\n1.Tên\n2.Giá'));
+        switch (choose) {
+            case 1://XÓA TÊN
+                let name=prompt("Bạn muốn đổi thành tên");
+                array[i]=name;
+                break;
+                 case 2://XÓA GIÁ
+                let price=prompt("Bạn muốn đổi giá là");
+                array1[i]=price;
+                break;
+        }
+        createTable();
+    }
+
+    //HÀM THÊM 1 PHẦN TỬ
+    function add() {
+        let name=prompt("Tên sản phẩm");
+        let price=prompt("Giá sản phẩm");
+        //ĐIỀU KIỆN ĐỂ KHÔNG THÊM SẢN PHẨM NÀO
+        //KHI Ấn CANEL HOẶC KHI KHÔNG CÓ KÝ TỰ NÀO TRONG NAME HOẶC PRICE
+        if (name==null||price==null||(name===""&&price==="")){
+            alert("Bạn không thêm sản phẩm nào")
+            return false;
+        }
+        array.push(name);
+        array1.push(price);
+        createTable();
+    }
+</script>
+</body>
+</html>
