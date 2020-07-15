@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soLuong = parseInt(prompt("Tạo mảng có bao nhiêu phần tử:"));
+    let array = new Array(soLuong);
+    let array1=new Array();
+    for (let i = 0; i < array.length; i++) {
+        array[i] = Number(prompt("Nhập phần tử là số nguyên" + i));
+        array1.push(array[i]);
+    }
+    document.write("Các giá trị của mảng khi đã đảo ngược là: Array["+array1.reverse()+"]")
+</script>
+
+</body>
+</html>

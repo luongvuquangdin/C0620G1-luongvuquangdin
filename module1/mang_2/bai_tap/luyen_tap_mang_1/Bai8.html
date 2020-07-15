@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sắp xếp số nguyên dương giảm dần</title>
+</head>
+<body>
+<script>
+    let array=new Array(10);
+    let max;
+    let array1= new Array();
+    let dem=0
+    for (let i=0;i<array.length;i++){
+        while (1) {
+            array[i] = Number(prompt("Nhập vào phần tử thứ " + i));
+            if (isNaN(array[i]) || !Number.isInteger(array[i])) {
+                alert("Bạn phải nhập một số nguyên")
+                continue;
+            }
+            break;
+        }
+    }
+    let j;
+    max=array[0];
+    while (array.length>=1){
+        if (array.length==1){
+            array.length=array.length-1
+        }
+        for (j=1;j<array.length;j++){
+            if (array[j]>max){
+                max=array[j];
+                dem=j;
+            }
+        }
+        array.splice(dem,1);
+        array1.push(max);
+        max=array[0];
+        if (array.length==1){
+        }
+    }
+    document.write(array1);
+
+
+</script>
+</body>
+</html>

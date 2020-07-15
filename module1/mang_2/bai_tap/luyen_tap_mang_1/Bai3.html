@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soLuong = parseInt(prompt("Tạo mảng có bao nhiêu phần tử:"));
+    let array = new Array(soLuong);
+    let sum = 0;
+    let medium;
+    for (let i = 0; i < array.length; i++) {
+        array[i] = Number(prompt("Nhập phần tử là số nguyên" + i));
+        sum += array[i];
+    }
+    medium = sum / array.length;
+    let max = array[0];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i]
+        }
+    }
+    document.write("Giá trị lớn nhất trong mảng là: " + max +
+        "\nGiá trị trung bình của mảng là: " + medium)
+</script>
+</body>
+</html>

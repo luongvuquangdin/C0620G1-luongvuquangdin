@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string =prompt("Nhập vào một chuỗi ký tự của mảng");
+    let dem=0;
+    let array=new Array(string.length);
+    for (let i=0;i<string.length;i++){
+        array[i]=string[i];
+        if (string[i]==='-'){
+            dem+=1;
+            array[i]='_';
+        }
+    }
+    document.write('trong mảng có '+dem+' ký tự -'+'<br>Mảng sau khi thay thế là '+'Array['+array.join("")+']')
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<form id="form1">
+    <label>Trò chơi caro</label>
+    <br/>
+    <p id="caro"></p>
+    <input id="replay" type="button" value="Chơi lại">
+</form>
+<script>
+    let check;
+    let array = new Array();
+    danhCo();
+
+    function danhCo() {
+        //THIẾT LẬP BÀN CỜ CARO
+        check = true;
+        array = new Array(12);
+        for (let i = 0; i < array.length; i++) {
+            array[i] = new Array(12);
+            for (let j = 0; j < array[i].length; j++) {
+                array[i][j] = '';
+            }
+        }
+        table1();
+    }
+
+    //THIẾT LẬP HIỂN THỊ BÀN CỜ CARO
+    function table1() {
+        let data = '<table border="1">';
+        for (i = 0; i < array.length; i++) {
+            data += '<tr>';
+            for (j = 0; j < array.length; j++) {
+                data += '<td onclick="player1(' + i + ',' + j + ')" style="height: 30px; width: 30px">' + array[i][j] + '</td>';
+            }
+            data += '</tr>';
+        }
+        data += '<table>';
+        document.getElementById("caro").innerHTML = data;
+    }
+
+    //NGƯỜI CHƠI 1
+    function player1(i, j) {
+        if (check && !checkPlayer(i, j)) {
+            array[i][j] = 'X';
+            check = false;
+            table1();
+            if (checkWin()) {
+                setTimeout('alert("Người chơi một chiếc thắng")', 400);
+            }
+        } else if (!check && !checkPlayer(i, j)) {
+            array[i][j] = 'O'
+            check = true;
+            table1();
+            if (checkWin()) {
+                setTimeout('alert("Người chơi hai chiếc thắng")', 400);
+            }
+        }
+    }
+
+    function checkPlayer(i, j) {
+        if (array[i][j] == 'X' || array[i][j] == 'O') {
+            return true;
+        }
+        return false;
+    }
+
+    function checkWin() {
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                if (array[i][j] == "X") {
+                    if (array[i][j] == "X" && array[i][j + 1] == "X" && array[i][j + 2] == "X") {
+                        return true;
+                    }
+                    if (array[i][j] == "X" && array[i + 1][j] == "X" && array[i + 2][j] == "X") {
+                        return true;
+                    }
+                    if (array[i][j] == "X" && array[i + 1][j + 1] == "X" && array[i + 2][j + 2] == "X") {
+                        return true;
+                    }
+                    if (array[i][j] == "X" && array[i + 1][j - 1] == "X" && array[i + 2][j - 2] == "X") {
+                        return true;
+                    }
+                } else if (array[i][j] == "O") {
+                    if (array[i][j] == "O" && array[i][j + 1] == "O" && array[i][j + 2] == "O") {
+                        return true;
+                    }
+                    if (array[i][j] == "O" && array[i + 1][j] == "O" && array[i + 2][j] == "O") {
+                        return true;
+                    }
+                    if (array[i][j] == "O" && array[i + 1][j + 1] == "O" && array[i + 2][j + 2] == "O") {
+                        return true;
+                    }
+                    if (array[i][j] == "O" && array[i + 1][j - 1] == "O" && array[i + 2][j - 2] == "O") {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    let replay = document.getElementById('replay');
+    replay.addEventListener("click", danhCo);
+</script>
+</body>
+</html>
