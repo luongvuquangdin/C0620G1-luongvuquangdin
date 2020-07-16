@@ -53,10 +53,14 @@
         document.getElementById('table').innerHTML = data;
     }
     createTable();
+
     //HÀM XÓA 1 PHẦN TỬ
     function delete1(i) {
-        array.splice(i,1);//XÓA PHẦN TỬ TỪ VỊ TRÍ i VÀ 1 PHẦN TỬ sau i
-        createTable();
+        let check=confirm('Bạn có chắc muốn xóa sản phẩm: '+array[i]);
+        if (check) {
+            array.splice(i, 1);//XÓA PHẦN TỬ TỪ VỊ TRÍ i VÀ 1 PHẦN TỬ sau i
+            createTable();
+        }
     }
 
     //HÀM SỬA 1 PHẦN TỬ
@@ -65,20 +69,30 @@
         switch (choose) {
             case 1://XÓA TÊN
                 let name=prompt("Bạn muốn đổi thành tên");
+                if (name===null||name===""){
+                    alert('Bạn chưa nhập tên nào để thay đổi')
+                }else {
                 array[i]=name;
+                }
                 break;
                  case 2://XÓA GIÁ
                 let price=prompt("Bạn muốn đổi giá là");
-                array1[i]=price;
+                     if (price===null||price===""){
+                         alert('Bạn chưa nhập tên nào để thay đổi')
+                     }else {
+                         array[i]=price;
+                     }
                 break;
         }
         createTable();
+
     }
 
     //HÀM THÊM 1 PHẦN TỬ
     function add() {
         let name=prompt("Tên sản phẩm");
         let price=prompt("Giá sản phẩm");
+
         //ĐIỀU KIỆN ĐỂ KHÔNG THÊM SẢN PHẨM NÀO
         //KHI Ấn CANEL HOẶC KHI KHÔNG CÓ KÝ TỰ NÀO TRONG NAME HOẶC PRICE
         if (name==null||price==null||(name===""&&price==="")){
