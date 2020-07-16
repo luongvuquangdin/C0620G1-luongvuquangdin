@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra đối xứng</title>
+</head>
+<body>
+<script>
+    let str=prompt('Nhập vào một chuỗi');
+    function checkPalindrime(string){
+        let first=0;
+        let last=str.length;
+        if (first<last){
+            return alert('Đây là chuỗi palidrime');
+        }
+        if (str.charAt(first)===str.charAt(last)){
+            first++;
+            last--;
+            checkPalindrime(first,last);
+        }else
+            return alert("Đây không phải là chuỗi palidrime")
+    }
+ checkPalindrime(str);
+</script>
+</body>
+</html>

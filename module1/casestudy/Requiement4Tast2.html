@@ -6,8 +6,8 @@
 </head>
 <body>
 <script>
-    let arrNameCustomers = ['Tên', 'Số CMND', 'Ngày tháng năm sinh', 'Email', 'Địa chỉ', 'Loại phòng', 'Giảm giá',
-        'Số người đi kèm', 'Số ngày thuê', 'Loại dịch vụ'];
+    let arrNameCustomers = ['Châu', 'Khánh', 'Đin', 'Lành', 'Vũ', 'Mai', 'Tín',
+        'Duy', 'Hậu', 'Quân'];
     menu();
 
     function menu() {
@@ -15,7 +15,9 @@
             "2.Delete customer"));
         switch (menu1) {
             case 1:
-                showCustomer();
+                let show=showCustomer(arrNameCustomers);
+                alert(show);
+                menu();
                 break;
             case 2:
                 deleteCustomer();
@@ -23,17 +25,16 @@
         }
     }
 
-    function showCustomer() {
+    function showCustomer(arrNameCustomers) {
         let str = '';
         for (let i = 0; i < arrNameCustomers.length; i++) {
             str += (i + 1) + '.' + arrNameCustomers[i] + ':\n';
         }
-        alert(str);
+        return str;
     }
 
     function deleteCustomer() {
-        let number = parseInt(prompt('Chọn Customer bạn muốn xóa:\n1.Tên\n2.Số CMND\n3.Ngày tháng năm sinh\n4.Email\n' +
-            '5.Địa chỉ\n6.Loại phòng\n7.Giảm giá\n8.Số người đi kèm\n9.Số ngày thuê\n10.Loại dịch vụ'));
+        let number = parseInt(prompt(showCustomer(arrNameCustomers)));
         switch (number) {
             case 1:
                 arrNameCustomers.splice(0, 1);
@@ -70,7 +71,8 @@
                 deleteCustomer();
                 break;
         }
-        showCustomer();
+        alert(showCustomer(arrNameCustomers));
+        menu();
     }
 
 </script>

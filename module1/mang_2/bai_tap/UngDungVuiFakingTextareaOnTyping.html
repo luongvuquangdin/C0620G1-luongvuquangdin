@@ -5,10 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-<input id="click" type="text" onk>
+<label style="float: left">Anh Khánh là ai?</label>
+<textarea id="keydown" cols="80" rows="10"></textarea>
 <script>
-    let a=document.getElementById('click');
-    a.addEventListener("keydown", )
+    let i=0;
+    let data = "";
+    let array=['A','n','h',' K','h','á','n','h',' l','à',' m','ộ','t',' t','h','a','n','h',' n','i','ê','n',' t','ừ',
+        ' N','h','ậ','t',' B','ả','n',' t','r','ở',' v','ề',' v','à',' đ','a','m',' m','ê',' d','i','ễ','n',' x','u',
+        'ấ','t',' t','r','o','n','g',' n','g','à','n','h',' đ','i','ệ','n',' ả','n','h',' l','ớ','n',' n','h','ấ','t',
+        ' N','h','ậ','t',' B','ả','n.'];
+    let str=document.getElementById('keydown');
+    str.addEventListener('keydown',function () {
+        data+= array[i];
+        setTimeout("str.value = data",0);
+        i++;
+        if (i==array.length){
+            data+='\n';
+            i=0;
+        }
+    });
 </script>
 </body>
 </html>
