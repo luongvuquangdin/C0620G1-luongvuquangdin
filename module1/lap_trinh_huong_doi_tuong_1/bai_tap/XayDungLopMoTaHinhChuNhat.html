@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng mô tả hình chữ nhật</title>
+
+</head>
+<body>
+<canvas id="draw" width="500" height="500" style="border: 1px solid red"></canvas>
+<script>
+    class rectangle{
+        constructor(width,height) {
+            this.width=width;
+            this.height=height;
+        }
+        acreageRectangle(){
+           return  this.width*this.height;
+        }
+        perimeter(){
+            return 2*(this.width+this.height);
+        }
+        drawRectangle(){
+            let canvas=document.getElementById('draw').getContext('2d');
+            let x=Math.round(Math.random()*300);
+            let y=Math.round(Math.random()*300);
+            canvas.fillStyle='blue';
+            canvas.fillRect(x,y,this.width,this.height);
+    }
+    }
+    let rectangle1= new rectangle(200,100);
+    document.write("<br>Diện tích hình chữ nhật: "+rectangle1.acreageRectangle());
+    document.write('<br>Chu vi hình chữ nhật: '+rectangle1.perimeter());
+    rectangle1.drawRectangle();
+
+
+</script>
+</body>
+</html>

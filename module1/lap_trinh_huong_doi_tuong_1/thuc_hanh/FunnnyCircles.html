@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Circle</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500"
+        style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+</canvas>
+
+<script>
+    class cirlce {
+        constructor(x, y, radius) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius
+        }
+
+        creatCirlce() {
+
+            let canvas = document.getElementById('myCanvas').getContext('2d');
+            canvas.beginPath();
+            canvas.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            canvas.stroke();
+        }
+
+        createCircleRadiusRandom() {
+            let canvas = document.getElementById("myCanvas").getContext("2d");
+            this.radius = Math.floor(Math.random() * 80);
+            canvas.beginPath();
+            canvas.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            canvas.stroke();
+        }
+
+        createCircleRandom() {
+            let canvas = document.getElementById("myCanvas").getContext("2d");
+            this.radius = Math.floor(Math.random() * 150);
+            this.x= Math.floor(Math.random() * 400);
+            this.y= Math.floor(Math.random() * 400);
+            let red = Math.floor(Math.random() * 255);
+            let green= Math.floor(Math.random() * 255);
+            let blue= Math.floor(Math.random() * 255);
+            canvas.fillStyle="rgb(" + red + "," + blue + "," + green +")";
+            canvas.beginPath();
+            canvas.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            canvas.fill();
+        }
+    }
+
+let i=2;
+    do{ let cirlce1 = new cirlce(200, 200, 100);
+       setTimeout(cirlce1.createCircleRandom(),1000);
+    i+=1;
+    }
+    while (i<100)
+
+
+</script>
+</body>
+</html>

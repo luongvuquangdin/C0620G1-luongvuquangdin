@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp hình tròn</title>
+</head>
+<body>
+<script>
+    let circle=function (radius) {
+        this.radius = radius;
+        this.color= 'red';
+        this.crircle=function () {
+            this.radius = radius;
+        };
+        this.getRadius=function (radius) {
+            return this.radius;
+        };
+        this.getArea=function (radius) {
+            return Math.PI * Math.pow(this.radius,2);
+        };
+    };
+
+
+    let circle1 = new circle(2);
+    let radius = circle1.getRadius(); // 2
+
+    let area = circle1.getArea(); // 12.566370614359172
+    alert("radius: " + radius + "; area: " + area);
+
+    //hinh tròn thứ 2 hai
+    let circle2= new circle(4);
+    radius = circle2.getRadius();
+    area = circle2.getArea();
+    alert("radius: " + radius + "; area: " + area);
+</script>
+</body>
+</html>

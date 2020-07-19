@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let arrCustomers = ['Tên', 'Số CMND', 'Ngày tháng năm sinh', 'Email', 'Địa chỉ',
+        'Loại Customer (Diamond, Platinum, Gold, Silver, Member)', 'Giảm giá', 'Số lượng người đi kèm', 'Số ngày thuê',
+        'Loại dịch vụ (Villa, House, Room)', 'Loại phòng thuê (Vip, Business,  Normal)'];
+    let informationCustomers = new Array();
+    let j = 0;
+    let nameCustomers;
+    let soThuTu;
+    let data;
+    displayMainMenu();
+// BẢN MENU ĐỂ CHỌN CHỨNG NĂNG
+    function displayMainMenu() {
+        let choose = prompt('Nhập thao tác muốn thực hiện:\n' +
+            '1.Add New Customer.\n' +
+            '2.Display Information Customer.\n' +
+            '3.Edit Information Customer.\n' +
+            '4.Delete Customer.\n' +
+            '5.Exit.\n')
+        switch (choose) {
+            case '1':
+                addNewCustomer();
+                displayMainMenu();
+                break;
+            case '2':
+                alert(displayCustomer());
+                displayMainMenu();
+                break;
+            case '3':
+                editCustomer();
+                displayMainMenu();
+                break;
+            case '4':
+                deleteCustomer();
+                displayMainMenu();
+                break;
+            case '5':
+                break;
+        }
+    }
+// CHỨC NĂNG THÊM THÔNG TIN CUSTOMER
+    function addNewCustomer() {
+        informationCustomers[j] = new Array();
+        for (let i = 0; i < arrCustomers.length; i++) {
+            let customer = prompt('Nhập ' + arrCustomers[i] + ':');
+            informationCustomers[j].push(arrCustomers[i] + ': ' + customer);
+        }
+        alert(information(j));//HIỆN THÔNG TIN VỪA NHẬP
+        j++;
+    }
+
+
+    //HÀM HIỂN THỊ TOÀN BỘ THÔNG TIN MỘT KHÁCH HÀNG
+    function information(j) {
+        data='';
+        for (let i=0;i < arrCustomers.length ;i++){
+            data+=(i+1)+': '+informationCustomers[j][i]+'\n';
+        }
+        return data
+    }
+
+
+    //HÀM LẤY TÊN VÀ CMND CỦA KHÁCH HÀNG ĐỂ HIỂN THỊ
+    function nameAndCMND1() {
+        let nameAndCMND = '';
+        soThuTu = 1;
+        for (let phanTu=0;phanTu<informationCustomers.length;phanTu++){
+            nameAndCMND += soThuTu + '. ';
+            for (let i=0;i<2;i++){
+               if (arrCustomers[i] === 'Tên') {
+                    nameAndCMND +=informationCustomers[phanTu][i]  + '\n';
+                    continue;
+                }
+                    nameAndCMND +='   '+informationCustomers[phanTu][i] + '\n';
+            }
+            soThuTu++;
+        }
+        return nameAndCMND;
+    }
+
+    //HÀM HIỂN THỊ TÊN VÀ CMND CỦA TOÀN BỘ KHÁCH HÀNG
+    function displayCustomer() {
+        let choose = parseInt(prompt(nameAndCMND1() + soThuTu+ '. Back'));//TÊN VÀ CMND KHÁCH HÀNG VÀ LỰA CHỌN BACK
+        //NẾU LỰA CHỌN LÀ BACK THÌ QUAY LẠI MENU TRƯỚC ĐÓ
+        if (choose === soThuTu) {
+            displayMainMenu();
+        }
+        //LỰA CHỌN KHÁCH HÀNG VÀ HIỂN THỊ TOÀN BỘ THÔNG TIN CỦA KHÁCH HÀNG ĐÓ
+        //BIẾN nameCustomers ĐỂ LẤY PHẦN TỬ TRONG MẢNG 2 CHIỀU CHO CHỨC NĂNG EDIT VÀ DELETE
+        nameCustomers=choose-1;
+        //VÌ LỰA CHỌN LÀ 1 THÌ THÌ THÔNG TIN TRONG MẢNG LÀ PHẦN TỬ 0
+        //NÊN PHẢI -1;
+        return information(choose-1);
+    }
+
+    //HÀM SỬA THÔNG TIN CỦA 1 KHÁCH HÀNG
+    function editCustomer() {
+        //TOÀN BỘ THÔNG TIN CỦA 1 KHÁCH HÀNG CÓ THÊM CHỨC NĂNG BACK
+        let editChoose = parseInt(prompt('Chọn thông tin muốn sửa\n' +
+            displayCustomer()+ (arrCustomers.length + 1) + '. Back'));
+        //NẾU CHỌN BACK SẼ QUAY LẠI MENU EDIT ĐỂ CHỌN KHÁC HÀNG MUỐN EDIT
+        if (editChoose === (arrCustomers.length + 1)) {
+            return editCustomer();
+        }
+        //NHẬP SỬA THÔNG TIN ĐÃ CHỌN
+        let edit = prompt("Nhập " + arrCustomers[editChoose - 1] + ' muốn thây đổi');
+        //THAY ĐỔI GIÁ TRỊ PHẦN TỬ ĐÃ CHỌN TRONG MẢNG THÀNH GIÁ TRỊ ĐÃ SỬA
+        informationCustomers[nameCustomers][editChoose - 1] = arrCustomers[editChoose - 1] + ': ' + edit;
+        alert(information(nameCustomers));
+    }
+    //CHỨNG NĂNG XÓA MỘT THÔNG TIN CỦA 1 KHÁCH HÀNG
+    function deleteCustomer(){
+        //HIỂN THỊ TOÀN BỘ KHÁCH HÀNG VỚI TOÀN BỘ THÔNG TIN SAU ĐÓ CHỌN 1 KHÁCH HÀNG MUỐN XÓA
+        //THÊM CHỨNG NĂNG BACK VÀO BẢNG THÔNG BÁO THÔNG TIN KHÁCH HÀNG MUỐN XÓA
+        let deleteChoose=parseInt(prompt('Chọn thông tin muốn xóa\n'+
+        displayCustomer()+'\n' + (arrCustomers.length + 1) + '. Back'));
+        if (deleteChoose === (arrCustomers.length + 1)) {
+            deleteCustomer();
+        }
+        //XÓA PHẦN TỬ CỦA MẢNG Ở VỊ TRÍ ĐÃ CHỌN
+        informationCustomers[nameCustomers].splice(deleteChoose-1,1);
+        alert(information(nameCustomers));
+    }
+
+</script>
+</body>
+</html>
