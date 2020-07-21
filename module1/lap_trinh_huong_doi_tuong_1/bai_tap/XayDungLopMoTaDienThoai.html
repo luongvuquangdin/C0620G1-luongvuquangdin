@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả điện thoại</title>
+</head>
+<body>
+<script>
+    class mobile {
+        constructor(name, onOrOff, pin) {
+            this.name = name;
+            this.pin = pin;
+            this.onOrOff = onOrOff;
+            this.message = "";
+            this.received = "";
+        }
+
+        getbatOrTat() {
+            return this.onOrOff;
+        }
+
+        setOnOrOff(onOrOff) {
+            this.onOrOff = onOrOff;
+        }
+
+        check() {
+            if (this.onOrOff === 'on') {
+                return alert('Điện thoại đang bật');
+            }
+            return alert('Diện thoại đang tắt')
+        }
+
+        //SOẠN TIN NHẮN
+        texting(text) {
+            if (this.onOrOff === 'on') {
+                this.pin--;
+                this.message = text;
+            } else alert('Điện thoại chưa bật');
+        }
+
+        //GỬI TIN NHẮN
+        sendMessage(mobile) {
+            if (this.onOrOff === 'on') {
+                this.pin--;
+                mobile.received = this.message;
+            } else alert('Điện thoại chưa bật');
+        }
+
+        //NHẬN TIN NHẮN
+        receiveMessage() {
+            if (this.onOrOff === 'on') {
+                if (this.received!=="") {
+                    this.pin--;
+                    return alert('Bạn có một tin nhắn mới');
+                }
+            } else alert('Điện thoại chưa bật');
+        }
+
+        //
+        satPin() {
+            if (this.onOrOff === 'on') {
+                this.pin--;
+                return this.pin + 1;
+            } else alert('Điện thoại chưa bật');
+        }
+
+        //XEM TIN NHẮN TRONG HỘP THƯ ĐẾN
+        viewSend() {
+            if (this.onOrOff === 'on') {
+                this.pin--;
+                alert(this.message);
+
+            } else alert('Điện thoại chưa bật');
+        }
+
+        //XEM TIN NHẮN ĐÃ GỬI
+        viewReceive() {
+            if (this.onOrOff === 'on') {
+                this.pin--;
+                return alert(this.received);
+            } else alert('Điện thoại chưa bật');
+        }
+    }
+
+    let dienThoai1 = new mobile('nokia', 'on', 100);
+    let dienThoai2= new mobile('iphone','off',100);
+    dienThoai2.setOnOrOff('on');
+    dienThoai1.texting('Bạn là ai vậy?');
+    dienThoai1.sendMessage(dienThoai2);
+    dienThoai2.receiveMessage();
+    dienThoai2.viewReceive();
+</script>
+</body>
+</html>

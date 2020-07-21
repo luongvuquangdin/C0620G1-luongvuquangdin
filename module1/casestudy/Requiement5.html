@@ -63,7 +63,7 @@
         for (let i=0;i < arrCustomers.length ;i++){
             data+=(i+1)+': '+informationCustomers[j][i]+'\n';
         }
-        return data
+        return data;
     }
 
 
@@ -90,14 +90,15 @@
         let choose = parseInt(prompt(nameAndCMND1() + soThuTu+ '. Back'));//TÊN VÀ CMND KHÁCH HÀNG VÀ LỰA CHỌN BACK
         //NẾU LỰA CHỌN LÀ BACK THÌ QUAY LẠI MENU TRƯỚC ĐÓ
         if (choose === soThuTu) {
-            displayMainMenu();
+            return displayMainMenu();
         }
+
         //LỰA CHỌN KHÁCH HÀNG VÀ HIỂN THỊ TOÀN BỘ THÔNG TIN CỦA KHÁCH HÀNG ĐÓ
         //BIẾN nameCustomers ĐỂ LẤY PHẦN TỬ TRONG MẢNG 2 CHIỀU CHO CHỨC NĂNG EDIT VÀ DELETE
         nameCustomers=choose-1;
         //VÌ LỰA CHỌN LÀ 1 THÌ THÌ THÔNG TIN TRONG MẢNG LÀ PHẦN TỬ 0
         //NÊN PHẢI -1;
-        return information(choose-1);
+        return information(choose-1)
     }
 
     //HÀM SỬA THÔNG TIN CỦA 1 KHÁCH HÀNG
@@ -115,6 +116,8 @@
         informationCustomers[nameCustomers][editChoose - 1] = arrCustomers[editChoose - 1] + ': ' + edit;
         alert(information(nameCustomers));
     }
+
+
     //CHỨNG NĂNG XÓA MỘT THÔNG TIN CỦA 1 KHÁCH HÀNG
     function deleteCustomer(){
         //HIỂN THỊ TOÀN BỘ KHÁCH HÀNG VỚI TOÀN BỘ THÔNG TIN SAU ĐÓ CHỌN 1 KHÁCH HÀNG MUỐN XÓA

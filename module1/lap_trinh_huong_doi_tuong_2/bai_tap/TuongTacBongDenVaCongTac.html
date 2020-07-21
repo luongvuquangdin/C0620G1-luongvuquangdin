@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tương tác bóng đèn và công tắc</title>
+</head>
+<body>
+<script>
+    class ElectricLamp{
+        constructor(status) {
+            this.status=status;
+        }
+        getOnOrOff(){
+            if (this.status){
+                return 'Đèn đang được bật';
+            }return 'Đèn đang được tắt'
+        }
+        turnOff(){
+                return this.status=false;
+
+        }
+        turnOn(){
+            if (this.status){
+                return 'Đèn đang ở trạng thái bật'
+            }else {
+                return this.status=true;
+            }
+
+
+        }
+    }
+    class SwitchButton{
+        constructor(status) {
+            this.status=status;
+            this.lamp;
+        }
+        connetTolamp(lamp){
+            this.lamp=lamp;
+            return 'Đã liên kết công tắc với đèn';
+        }
+        switchOff(){
+           this.status=false;
+           this.lamp.turnOff();
+        }
+        switchOn(){
+            this.status=true;
+            this.lamp.turnOn();
+
+        }
+    }
+
+    let switchButton= new SwitchButton(false);
+    let electric=new ElectricLamp(false);
+    switchButton.connetTolamp(electric);
+    switchButton.switchOn();
+    switchButton.switchOff();
+    switchButton.switchOn();
+    switchButton.switchOff();
+    switchButton.switchOn();
+    switchButton.switchOff();
+    switchButton.switchOn();
+    switchButton.switchOff();
+    switchButton.switchOn();
+    switchButton.switchOff();
+
+    document.writeln(electric.getOnOrOff());
+
+</script>
+</body>
+</html>

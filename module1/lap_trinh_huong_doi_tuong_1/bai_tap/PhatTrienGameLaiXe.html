@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game lái xe</title>
+</head>
+<body>
+<canvas id="canvas" width="1350px" height="600px" style="border: 1px solid black"></canvas>
+<script>
+    let canvas=document.getElementById('canvas');
+    let draw=canvas.getContext('2d');
+    let img=new Image();
+    img.src='oto.jpg';
+    class Oto{
+        constructor(x,y,width, height) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.seconds=100;
+        }
+        setSeconds(b){
+            this.seconds=b;
+        }
+        setSpeed(){
+
+        }
+        setX(number){
+            this.x+=number;
+        }
+        moveDraw(){
+                this.x++;
+                draw.clearRect(0,0,canvas.width,canvas.height);
+                draw.drawImage(img,this.x,this.y, this.width, this.height);
+
+        }
+    }
+        let oto = new Oto(0,0,90, 90);
+        setInterval(function(){oto.moveDraw();oto.setX(2)},oto.seconds);
+
+    // let x = 585;
+    // let y = 210;
+    // let canvas = document.getElementById('canvas');
+    // let draw = canvas.getContext('2d');
+    //
+    // function oto() {
+    //     let img = new Image();
+    //     img.src = 'oto.jpg';
+    //     draw.drawImage(img, x, y, 90, 90);
+    // }
+    //
+    // setInterval(function () {
+    //    draw.clearRect(0,0,canvas.width,canvas.height);
+    //     oto();
+    //     y -= 1;
+    // }, 100)
+
+
+
+</script>
+</body>
+</html>

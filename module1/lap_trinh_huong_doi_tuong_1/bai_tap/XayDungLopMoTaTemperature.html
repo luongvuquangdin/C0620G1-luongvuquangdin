@@ -10,10 +10,17 @@
         constructor(doC) {
             this.doC=doC;
         }
-        count(){
-            
+        countDoF(){
+            return this.doC*1.8+32;
+        }
+        countDoK(){
+            return this.doC+273;
         }
     }
+    let Temparature=new temparature(25);
+    document.write('Độ C là: '+Temparature.doC);
+    document.write('<br>Chuyển sang độ F là: '+Temparature.countDoF());
+    document.write('<br>Chuyển sang độ Kenvin là: '+Temparature.countDoK());
 </script>
 </body>
 </html>
