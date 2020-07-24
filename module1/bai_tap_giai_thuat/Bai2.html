@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập tháng năm bất kỳ. In ra số ngày tương ứng với tháng năm đó</title>
+</head>
+<body>
+<script>
+    let monthAndYear=prompt('nhập vào tháng năm muốn lấy ngày');
+    //Xử lý để lấy tháng năm;
+    let year=parseInt(monthAndYear.slice(-4));
+    let month=parseInt(monthAndYear.slice(0,monthAndYear.length-5))-1;
+
+    //Đưa nó về định dạng ngày 1 và tháng năm đó;
+    let date=new Date();
+    date.setMonth(month,1);
+    date.setYear(year);
+
+
+    //Lấy ngày 1 của tháng sau trong năm đó;
+    let date1=new Date();
+    month1=month+1;
+    date1.setMonth(month1,1);
+    if (month===11){
+    date1.setYear(year+1);
+    }else{
+        date1.setYear(year);
+    }
+
+    //tính số giây giữa tháng vừa nhập tới tháng sau của nó;
+    let soNgay=date1-date;
+   document.write('Số ngày trong tháng là: '+soNgay/(60*60*24*1000));
+
+</script>
+</body>
+</html>

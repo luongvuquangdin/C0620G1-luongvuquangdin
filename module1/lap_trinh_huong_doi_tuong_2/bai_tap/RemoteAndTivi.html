@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điều khiển tivi bằng remote</title>
+</head>
+<body>
+<script>
+    class Television{
+        constructor(channel,sound) {
+            this.status = "off";
+            this.channel = channel;
+            this.sound = sound;
+        }
+        changeChannel(channel){
+            if (this.status === "off"){
+               return  alert("TV chưa bật nhé !")
+            }else this.channel = channel;
+        }
+        changeSound(number){
+            if (this.status === "off") {
+               return  alert("TV chưa bật nhé !")
+            }
+            else this.sound = number;
+        }
+        turnOnOff(){
+            if (this.status === "off"){
+                this.status = "on";
+            }else this.status = "off";
+        }
+        checkStatus(){
+            return this.status;
+        }
+        checkSound(){
+            return this.sound;
+        }
+        checkChannel(){
+            return this.channel;
+        }
+    }
+    class Remote{
+        constructor(id) {
+            this.id = id;
+        }
+        changeChannel(channel){
+            if (this.id.status === "off"){
+               return  alert("TV chưa bật nhé !")
+            }else this.id.channel = channel;
+        }
+        changeSound(number){
+            if (this.id.status === "off") {
+                return alert("TV chưa bật nhé !")
+            }
+            else this.id.sound = number;
+        }
+        turnOnOff(){
+            if (this.id.status === "off"){
+                this.id.status = "on";
+            }else this.id.status = "off";
+        }
+    }
+    let tivi = new Television(5,35);
+    let remote = new Remote(tivi);
+    alert('Tivi đang '+tivi.checkStatus());
+    alert('Âm lượng của tivi: '+tivi.checkSound());
+    alert('Tivi đang ở kênh '+tivi.checkChannel());
+    tivi.turnOnOff();
+    alert('Tivi đang '+tivi.checkStatus());
+    tivi.changeChannel(7);
+    alert('Tivi đang ở kênh '+tivi.checkChannel());
+    remote.changeChannel(3);
+    alert('Tivi đang ở kênh '+tivi.checkChannel());
+    remote.changeSound(37);
+    alert('Âm lượng của tivi: '+tivi.checkSound());
+    remote.turnOnOff();
+    alert('Tivi đang '+tivi.checkStatus());
+</script>
+</body>
+</html>

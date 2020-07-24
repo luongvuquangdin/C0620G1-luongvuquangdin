@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Nhập vào 1 chuỗi
+    let str=prompt('Nhập vào một chuỗi');
+    let newStr='';
+    //Đảo ngược chuỗi
+    for (let i=str.length-1;i>=0;i--){
+        newStr+=str[i];
+    }
+    alert('Chuỗi bạn vừa nhập là: '+str);
+    alert('Chuỗi của bạn khi đã đả ngược là: '+newStr);
+    //Đổi chuỗi đã nhập sang chuỗi hoa
+    newStr='';
+    alert(newStr);
+    for (let i=0;i<str.length;i++){
+        newStr+=str[i].toUpperCase();
+    }
+    alert('Chuỗi của bạn khi tất cả được ghi sang ghi hoa là: '+newStr);
+    //Đổi chuỗi sang chữ thương
+    newStr='';
+    for (let i=0;i<str.length;i++){
+        newStr+=str[i].toLowerCase();
+    }
+    alert('Chuỗi của bạn khi tất cả được ghi sang ghi thường '+newStr);
+    newStr='';
+    for (let i=0;i<str.length;i++){
+        if (str[i]===str[i].toUpperCase()){
+            newStr+=str[i].toLowerCase();
+        }
+        if (str[i]===str[i].toLowerCase()){
+            newStr+=str[i].toUpperCase();
+        }
+    }
+    alert('Chuỗi của bạn khi chữ hoa được đổi sang thường và ngược lại là: '+newStr)
+</script>
+</body>
+</html>

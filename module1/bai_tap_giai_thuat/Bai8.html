@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm UCLN và BCNH của hai số a và b</title>
+</head>
+<body>
+<script>
+    let numberA=parseInt(prompt('Nhập số nguyên dương thứ nhất:'));
+    let numberB=parseInt(prompt('Nhập số nguyên dương thứ hai:'));
+    let ucln;
+    let bcnn;
+    function findUcln(number1,number2){
+        while (number2!==0){
+            let temp=number2;
+            number2=number1%number2;
+            number1=temp;
+        }
+        return number1;
+    }
+    ucln=findUcln(numberA,numberB);
+    bcnn=(numberA*numberB)/ucln;
+    document.write('Hai số bạn vừa nhập là: '+numberA+'<br>'+numberB);
+    document.write('<br> Ước chung lớn nhất của hai số vừa nhập là: '+ucln+
+        '<br>Bội chung nhỏ nhất của hai số vừa nhập là: '+bcnn);
+</script>
+</body>
+</html>

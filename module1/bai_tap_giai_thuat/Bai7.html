@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng các chữ số của một số nguyên dương m cho trước</title>
+</head>
+<body>
+<script>
+    let number=prompt('Nhập vào một số nguyên dương');
+    let sum=0;
+    let product=1;
+    for (let i=0;i<number.length;i++){
+        sum+=parseInt(number.charAt(i));
+        product*=parseInt(number.charAt(i));
+    }
+    document.write('Số bạn đã nhập là: '+number);
+    document.write('<br>Tổng các chữ số trong số của bạn là: '+sum);
+    document.write('<br>Tích các chữ số trong số của bạn là: '+product);
+</script>
+</body>
+</html>

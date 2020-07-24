@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 10</title>
+</head>
+<body>
+<script>
+    let str=prompt('Nhập một chuỗi bất kỳ');
+    let newStr='';
+    //In mỗi từ trên mỗi dòng
+    for (let i=0;i<str.length;i++){
+        if (str[i]!==' '){
+            newStr+=str[i];
+        }else if(str[i]===' '&&str[i+1]!==' '){
+            newStr+='<br>'+str[i];
+        }
+    }
+    document.write('In mỗi từ trên mỗi dòng là:<br>'+newStr+'<hr>');
+    //Đếm số từ trong chuỗi;
+    let count=0;
+    let arr = str.split(' ');
+    for (let i=0;i<arr.length;i++){
+        count++;
+    }
+    document.write('<br>Số từ trong chuỗi của bạn là: '+count);
+    //Bảng tần số xuất hiện của các từ
+    let dem=1;
+    let arr1=new Array();
+    while (arr.length>0){
+        let i=0;
+        for (let j=i+1;j<arr.length;){
+            if (arr[i]===arr[j]){
+                dem++;
+                arr.splice(j,1);
+                j=j;
+                continue;
+            }
+            j++;
+        }
+        arr1.push('Từ '+'"'+arr[i]+'"'+' xuất hiện '+ dem+' lần');
+        arr.splice(i,1);
+        dem=1;
+    }
+    document.write('<br>'+arr1.join('<br>'))
+</script>
+</body>
+</html>

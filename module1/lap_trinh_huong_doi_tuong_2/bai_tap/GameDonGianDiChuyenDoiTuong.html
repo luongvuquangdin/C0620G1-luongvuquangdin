@@ -42,8 +42,6 @@
         }else if (hero.top<window.innerHeight-hero.size){
           hero.moveDown();
         }else{
-          document.getElementById('game').innerHTML = hero.getHeroElement();
-          hero.movLeft();
           return start1();
 
         }
@@ -53,13 +51,15 @@
 
 
       function start1(){
-        if(hero.left > 20){
+        if(hero.left >= 20){
           hero.movLeft();
-        }else if (hero.top>30){
+        }else if (hero.top>=30){
           hero.moveTop();
+        }else {
+          return start();
         }
         document.getElementById('game').innerHTML = hero.getHeroElement();
-        setTimeout(start1,1);
+        setTimeout(start1,10);
       }
 
       start();

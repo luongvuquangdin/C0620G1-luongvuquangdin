@@ -91,7 +91,7 @@
     }
 
     function show() {
-        tinh()
+        tinh();
         alert("1.Tên khách hàng: " + ten + "\n" +
             "2.Số CMND: " + idCard + "\n" +
             "3.Ngày sinh: " + dateOfBirth + "\n" +
@@ -188,7 +188,7 @@ function fixText(nhap) {
                         deadDauCham != -1 ||
                         deadDauCong != -1 ||
                         textDay != 2 || textMonth != 5 || textYear != 10 ||
-                        year <= new Date().getFullYear()) {
+                        year >= new Date().getFullYear()) {
                         alert("Định dạng ngày là số và có kiểu là DD/MM/YYYY\nVí dụ:02/11/1996");
                     } else {
                         if (day > 31 || month > 12 ||

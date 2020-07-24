@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//Nhập một mảng số nguyên
+    let element;
+    while (1) {
+        element = Number(prompt('Nhập số phần tử trong mảng'));
+        if (isNaN(element)||!Number.isInteger(element)||element<1){
+            alert('Bạn phải nhập số phần tử là số nguyên dương');
+            continue;
+        }
+        break;
+    }
+    let arr= new Array(element);
+    for (let i=0;i<arr.length;i++){
+        while(1){
+            arr[i]=Number(prompt('Nhập phần tử thứ '+(i+1)+' của mảng'));
+            if (isNaN(arr[i])||!Number.isInteger(arr[i])){
+            alert('Giá trị của mảng phải là số nguyên');
+            continue;
+            }
+            break;
+        }
+    }
+    document.write('Mảng bạn đã nhập là:<br>'+arr.join('<br>'));
+//Tính tổng số dương lẻ của mảng
+    let sum=0;
+    for (let i=0;i<arr.length;i++){
+        let mod=arr[i]%2===0;
+        if (arr[i]>=0&&(!mod)){
+            sum+=arr[i];
+        }
+    }
+    document.write('<br>Tổng của các số dương lẻ trong mảng là: '+sum);
+//Tổng các số nguyên tố ở vị trí chẵn
+    sum=0;
+    let mod=0;
+    for (let i=0;i<arr.length;i++){
+        if (i%2===0&&arr[i]>1) {
+            for (let j = 2; j < arr[i]; j++) {
+                if (arr[i] % j === 0) {
+                    mod++;
+                    break;
+                }
+            }
+            if (mod===1){
+                break
+            }
+            else {
+                sum+=arr[i];
+            }
+        }
+    }
+    document.write('<br>Tổng các số nguyên tố ở vị trí chẵn trong mảng là: '+sum);
+//Nhập phần tử k và tìm xem nó có trong mảng hay không nếu có thì chỉ ra vị trí của nó
+    let k=Number(prompt('Nhập phần tử muốn kiếm trong mảng'));
+    if (isNaN(k)||!Number.isInteger(k)){
+        document.write('<br>Phần tử '+k+' không có trong mảng');
+    }
+    else {
+        for (let i=0;i<arr.length;i++){
+            if (arr[i]===k){
+                document.write('<br>Phẩn tử '+k+' xuất hiện đầu tiên tại vị trí '+i+' của mảng');
+                break;
+            }
+            else if (i===arr.length-1){
+                document.write('<br>Phần tử '+k+' không có trong mảng');
+                break;
+            }
+        }
+    }
+//Sắp xếp mảng a theo thứ tự tăng dần;
+    document.write('<br>Mảng theo thứ tự tăng dần là: '+arr.sort(function (a,b) {
+                                                                    return  a-b;
+    }));
+//thêm phần tử p vào mảng và hiển thị theo thứ tự tăng dần;
+    let number;
+    while (1){
+        number=Number(prompt('Nhập phần tử số nguyên muốn thêm vào mảng'));
+        if (isNaN(number)||!Number.isInteger(number)){
+            alert('Bạn phải nhập số nguyên');
+            continue;
+        }
+        break;
+    }
+    arr.push(number);
+    document.write('<br>Mảng theo thứ tự tăng dần khi thêm phần tử '+number+' là: '+arr.sort(function (a,b) {
+        return  a-b;
+    }));
+
+
+
+
+</script>
+</body>
+</html>

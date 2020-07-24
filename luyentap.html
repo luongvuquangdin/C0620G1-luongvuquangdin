@@ -6,24 +6,25 @@
 </head>
 <body>
 <script>
-    msg = 'codegym';
-    for(var x = 0; x < msg.length - 1; x++)
-    {
-        if(msg.length == 3)
-        {
-            for (var i = 2; i < 7; i++)
-            {
-                console.log(i);
+    function breakingRecords(scores) {
+        let max=scores[0];
+        let min=scores[0];
+        let changeMin=0;
+        let changeMax=0;
+        for(let i=0;i<scores.length;i++){
+            if(scores[i]>max){
+                max=scores[i];
+                changeMax+=1;
+            }
+            if(scores[i]<min){
+                min=scores[i];
+                changeMin+=1;
+                set
             }
         }
-        else
-        {
-            for (var i = msg.length; i > (msg.length - 2); i--)
-            {
-                console.log(i);
-            }
-        }
+        console.log(changeMax+" "+changeMin);
     }
+    breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1])
 </script>
 </body>
 </html>

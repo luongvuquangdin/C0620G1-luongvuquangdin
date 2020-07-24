@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết chương trình tính 1+1/2 +.......+ 1/n</title>
+</head>
+<body>
+<script>
+    let numberEnd=parseInt(prompt('Nhập số phần tử n='));
+    let sum=0;
+    for (let i=1;i<=numberEnd;i++){
+        sum+=1/i;
+    }
+    alert('Tổng của 1+1/2 +.......+ 1/'+numberEnd+'là: '+sum);
+</script>
+</body>
+</html>

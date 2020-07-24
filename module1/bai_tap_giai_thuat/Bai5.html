@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính S=1+1/3!+1/5!+.....+1/(2n-1)!</title>
+</head>
+<body>
+<script>
+    let numberEnd=parseInt(prompt('Nhập số phần tử n='));
+    let sum=0;
+    let abs;
+    let number;
+    for (let i=1,number=1;i<=numberEnd;i++,number+=2){
+        abs=1;
+        for (let j=1;j<=number;j++){
+            abs*=j;
+        }
+        sum+=1/abs;
+    }
+    alert('Tổng của S=1+1/3!+1/5!+.....+1/(2n-1)! là: '+sum);
+</script>
+</body>
+</html>

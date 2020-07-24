@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính n!!   =1*3*5*.....*n(n lẽ)
+                      =2*4*6*....*n(n chẵn)</title>
+</head>
+<body>
+<script>
+    let numberEnd=parseInt(prompt('Nhập số n='));
+    let mod=numberEnd%2===0;
+    let sum=1;
+    if (mod){
+        for (let i=2;i<=numberEnd;i+=2){
+            sum*=i;
+        }
+        document.write('Tích 2*4*6*....*n là: '+sum);
+    }
+    else {
+        for (let i=1;i<=numberEnd;i+=2){
+            sum*=i;
+        }
+        document.write('Tích 1*3*5*.....*n là: '+sum);
+    }
+</script>
+</body>
+</html>

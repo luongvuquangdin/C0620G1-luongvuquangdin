@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mèo bắt Chuột</title>
+</head>
+<body>
+<script>
+    class Mouse {
+        constructor(name, weight, speed, live) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.live = live;
+        }
+        sound() {
+            alert("Chít Chít");
+        }
+    }
+    class Cat {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+        }
+        sound() {
+            alert("Meo Meo");
+        }
+        catchMouse(mouse) {
+            if (this.speed > mouse.speed) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        eatMouse(mouse) {
+            if (this.catchMouse(mouse) && mouse.live === 1) {
+                this.weight += mouse.weight;
+            }
+        }
+    }
+    let cat = new Cat("Mèo", 1000, 50);
+    let count = 0;
+    for (let i = 0; i < 10; i++) {
+        let mouse = new Mouse("Chuột", 100, 35, Math.round(Math.random()));
+        if (mouse.live === 1) {
+            cat.eatMouse(mouse);
+            count++;
+        }
+    }
+    document.write("Số chuột từng sống : " + count + "<br>");
+    document.write("Trọng lượng của mèo sau khi ăn mấy con chuột kia : " + cat.weight + " gram.");
+</script>
+</body>
+</html>

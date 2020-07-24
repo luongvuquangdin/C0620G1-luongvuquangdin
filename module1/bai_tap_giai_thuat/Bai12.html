@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma trận</title>
+
+</head>
+<body>
+<script>
+    let rowns;
+    while (1) {
+        rowns = Number(prompt('Nhập số dòng trong ma trận'));
+        if (isNaN(rowns)||!Number.isInteger(rowns)||rowns<1){
+            alert('Bạn phải nhập số dòng là số nguyên dương');
+            continue;
+        }
+        break;
+    }
+    let arr=new Array(rowns);
+    let columns;
+    while (1) {
+        columns = Number(prompt('Nhập số cột trong ma trận'));
+        if (isNaN(columns)||!Number.isInteger(columns)||columns<1){
+            alert('Bạn phải nhập số cột là số nguyên dương');
+            continue;
+        }
+        break;
+    }
+    for (let i=0;i<arr.length;i++){
+        arr[i]=new Array(columns);
+        for (let j=0;j<arr[i].length;j++){
+            while (1){
+                arr[i][j] = Number(prompt('Nhập giá trị của hàng thứ '+(i+1)+' cột thứ '+(j+1)));
+                if (isNaN(arr[i][j])||!Number.isInteger(arr[i][j])){
+                    alert('Bạn phải giá trị là số nguyên');
+                    continue;
+                }
+                break;
+            }
+        }
+    }
+    document.write('Ma trận đã nhập là:<br>'+arr.join('<br>'));
+    //Tính tích
+    let product=1;
+    for (let i=0;i<arr[0].length;i++){
+        if (arr[0][i]%3===0){
+            product*=arr[0][i];
+        }
+    }
+    document.write('<br>Tích các số là bội số của 3 trong dòng đầu tiền của ma trận là: '+product);
+    //Tạo mảng X[i] là các giá trị lớn nhất trên dòng i của ma trận
+    let maxArr=new Array();
+    for (let i=0;i<arr.length;i++){
+        let max=arr[i][0];
+        for (let j=0;j<arr[i].length;j++){
+            if (arr[i][j]>max){
+                max=arr[i][j];
+            }
+        }
+        maxArr.push(max);
+    }
+    document.write('<br>Mảng là các giá trị lớn nhất trong các hàng của ma trận là '+maxArr.join(','));
+    //Xóa các phần tử đầu tiên của mảng maxArr và hiển thị lại mảng maxArr
+    maxArr.shift();
+    document.write('<br>Mảng là các giá trị lớn nhất trong các hàng của ma trận khi bỏ đi phần tử đầu là '+maxArr.join(','));
+
+</script>
+</body>
+</html>
