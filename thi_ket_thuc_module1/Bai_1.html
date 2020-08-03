@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm phần tử có giá trị lớn nhất trong mảng</title>
+</head>
+<body>
+<script>
+    let score = [10, 2.5, 4.6, 5, 4, 10,99];
+
+    function findMax(array) {
+        let max = array[0];
+        let length = array.length;//Lấy chiều dài mảng
+        //Duyệt mảng để tìm phần tử có giá trị lớn nhất
+        for (let i = 1; i < length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+
+    let maxScore = findMax(score);
+    document.write('Danh sách điểm số: ' + score.join(' '));
+    document.write('<br>Điểm số cao nhất trong danh sách là: ' + maxScore);
+</script>
+</body>
+</html>

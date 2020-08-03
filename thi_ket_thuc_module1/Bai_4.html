@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+    /*Thuộc tính x là khoảng cách giữa width của canvas so với tâm của hình tròn
+      Thuộc tính y là khoảng cách giữa height của canvas so với tâm của hình tròn
+      radius là bán kính của hình tròn; color là màu của hình tròn*/
+    //Khai báo lớp Cilce
+    let canvas = document.getElementById('myCanvas');
+    class Circle {
+        constructor(x, y, radius, color) {
+
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.color = color;
+            this.draw;
+        }
+
+        setX(x) {
+            this.x = x;
+        }
+
+        setY(y) {
+            this.y = y;
+        }
+
+        setRadius(radius) {
+            this.radius = radius;
+        }
+
+        setColor(color) {
+            this.color = color;
+        }
+
+        getX(x) {
+            return this.x;
+        }
+
+        getY(y) {
+            return this.y;
+        }
+
+        getRadius(radius) {
+            return this.radius;
+        }
+
+        getColor(color) {
+            return this.color;
+        }
+        // Phương thức vẽ hình tròn trên canvas
+        render(canvas) {
+            this.draw=canvas.getContext('2d');
+            this.draw.beginPath();
+            this.draw.fillStyle = this.color;
+            this.draw.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            this.draw.fill();
+        }
+    }
+
+    let circle = new Circle(100, 100, 100, '#000000');
+    circle.render(canvas);
+</script>
+</body>
+</html>

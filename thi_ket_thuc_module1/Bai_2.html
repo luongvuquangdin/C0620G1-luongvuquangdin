@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị của number trong mảng array nếu có thì trả về mảng đã xóa phần tử đó, còn nếu không thì trả
+        vể mảng ban đầu</title>
+</head>
+<body>
+<script>
+    function tryRemoveFromArray(array, number) {
+        let length = array.length;
+        //Duyệt mảng và tìm giá trị x
+        for (let i = 0; i < length; i++) {
+            if (array[i] === number) {//nếu tìm thấy thì thực hiện xóa phần tử đó trong mảng
+                array.splice(i, 1);
+            }
+        }
+        return array;
+    }
+
+    let array = [1, 2, 3, 5, 2, 3, 1, 56, 743, 123];//Mảng ban đầu
+
+    document.write('Mảng số nguyên là: ' + array.join());
+
+    let number = 1;//Số cần tìm trong mảng trên
+    let newArray = tryRemoveFromArray(array, number);//Mảng sau khi thực hiện xong yêu cầu
+
+    document.write('<br>Số cần tìm là: ' + number);
+
+    document.write('<br>Mảng số nguyên khi thực hiện số ' + number + ' là: ' + newArray.join());
+</script>
+</body>
+</html>

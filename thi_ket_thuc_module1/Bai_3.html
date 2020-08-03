@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra xem 1 số có phải là số Fibonacci không. Nếu phải thì trả về true còn không trả về false</title>
+</head>
+<body>
+<script>
+    //Hàm kiểm tra một số có phải là số Fibonacci hay không
+    function isFibonacci(number) {
+        let numberFibonacci1 = 0;
+        let numberFibonacci2 = 1;
+        let temp;
+        let check = false;
+        while (numberFibonacci1 <= number) {
+            //Nếu là số trong dãy thì trả về true;
+            if (numberFibonacci1 === number) {
+                check = true;
+                break;
+            }
+            //Lấy số numberFibonacci1 trong dãy Fibonacci
+            temp = numberFibonacci2;
+            numberFibonacci2 = numberFibonacci2 + numberFibonacci1;
+            numberFibonacci1 = temp;
+        }
+        return check;
+    }
+
+    let number = isFibonacci(7);
+    alert(number);
+</script>
+</body>
+</html>
