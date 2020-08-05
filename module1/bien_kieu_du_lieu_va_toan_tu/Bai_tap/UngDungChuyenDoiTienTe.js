@@ -9,5 +9,4 @@ function chuyenDoiTienTe() {
     } else {
         document.getElementById("convert").innerHTML ="Result:"+ amount;
     }
-
 }

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Ứng dụng chuyển đổi tiền tệ</title>
-    <script src="UngDungChuyenDoiTienTe.js"></script>
 </head>
 <body>
 <form>
@@ -23,5 +22,19 @@
     <input style="margin-left: 30px" type="button" value="Convert" onclick="chuyenDoiTienTe()">
     <p id="convert"></p>
 </form>
+<script>
+    function chuyenDoiTienTe() {
+        let amount = parseInt(document.getElementById("Amount").value);
+        let fromCurrency = document.getElementById("Fromcurrency").value;
+        let tocurrency = document.getElementById("Tocurrency").value;
+        if ((fromCurrency === "Vietnam") && (tocurrency === "USD")){
+            document.getElementById("convert").innerHTML="Result:" + amount * 23000;
+        } else if ((fromCurrency === "USD") && (tocurrency === "Vietnam")) {
+            document.getElementById("convert").innerHTML ="Result:"+amount / 23000;
+        } else {
+            document.getElementById("convert").innerHTML ="Result:"+ amount;
+        }
+    }
+</script>
 </body>
 </html>
