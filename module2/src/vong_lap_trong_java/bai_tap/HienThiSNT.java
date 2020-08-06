@@ -6,7 +6,7 @@ public class HienThiSNT {
         boolean kiemTraSNT;
         while (soNT<100){
             kiemTraSNT=true;
-            for (int dem=2;dem<soNT;dem++){
+            for (int dem=2;dem<Math.sqrt(soNT);dem++){
                 if (soNT%dem==0){
                     kiemTraSNT=false;
                     break;

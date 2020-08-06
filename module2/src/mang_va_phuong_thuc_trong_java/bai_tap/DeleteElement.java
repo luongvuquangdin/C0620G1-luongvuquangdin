@@ -6,9 +6,9 @@ public class DeleteElement {
     public static void main(String[] args) {
         int[] array={1,2,3,4,5,6,7,6,5,4,3,2,1};
         Scanner sc=new Scanner(System.in);
-        System.out.print("Nhập phần tử muốn tìm trong mảng: ");
+        System.out.print("Nhập phần tử muốn xóa: ");
         int number=sc.nextInt();
-        System.out.println("\nPhần từ trong mảng: ");
+        System.out.println("Phần từ trong mảng: ");
         for (int index: array){
             System.out.printf("%-5d",index);
         }
@@ -24,19 +24,14 @@ public class DeleteElement {
     }
     public static int deleteElement(int[] arr, int number) {
         int size = arr.length;
-        int temp;
         int count = 0;
         for (int i = 0; i < size; i++) {
             if (number == arr[i]) {
                 count++;
-                arr[i] = 0;
-                int index = i;
-                for (int j = i + 1; j < size; j++) {
-                    temp = arr[index];
-                    arr[index] = arr[j];
-                    arr[j] = temp;
-                    index++;
+                for (int j = i; j < size-1; j++) {
+                    arr[j] = arr[j+1];
                 }
+                arr[size-1]=0;
                 i--;
             }
         }
