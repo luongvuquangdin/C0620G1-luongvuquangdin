@@ -1,6 +1,8 @@
 package inheritance.thuc_hanh;
 
-public class Circle extends Shape {
+import abstract_class_interface.bai_tap.trien_khai_interface_colorable_cho_lop_hinh_hoc.Resizeable;
+
+public class Circle extends Shape implements Resizeable {
     private double radius=1.0;
     public Circle(){}
     public Circle(double radius){
@@ -33,6 +35,11 @@ public class Circle extends Shape {
                 + getRadius()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        this.radius*=percent;
     }
 }
 

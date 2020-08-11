@@ -1,7 +1,7 @@
 package access_modifier_static_proprety_static_method.bai_tap;
 
 public class Circle {
-    private double radius=1.0;
+    public double radius=1.0;
     private String color ="red";
 //Constructor
     public Circle(){
@@ -36,10 +36,10 @@ public class Circle {
         System.out.printf("radius=%3.1f color=%s\n",this.radius,this.color);
     }
 }
-class TestCircle{
-    public static void main(String[] args) {
-        Circle circle=new Circle();
-        Circle circle1=new Circle(123122.3, "blue");
-        circle.Display();
-    }
-}
+//class TestCircle{
+//    public static void main(String[] args) {
+//        Circle circle=new Circle();
+//        Circle circle1=new Circle(123122.3, "blue");
+//        circle.Display();
+//    }
+//}

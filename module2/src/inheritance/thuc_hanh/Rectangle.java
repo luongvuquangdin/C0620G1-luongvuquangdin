@@ -1,6 +1,8 @@
 package inheritance.thuc_hanh;
 
-public class Rectangle extends Shape {
+import abstract_class_interface.bai_tap.trien_khai_interface_colorable_cho_lop_hinh_hoc.Resizeable;
+
+public class Rectangle extends Shape implements Resizeable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -50,6 +52,12 @@ public class Rectangle extends Shape {
                 + getLength()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        this.width*=percent;
+        this.length*=percent;
     }
 }
 

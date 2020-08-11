@@ -1,6 +1,8 @@
 package inheritance.thuc_hanh;
 
-public class Shape {
+import abstract_class_interface.bai_tap.trien_khai_interface_colorable_cho_lop_hinh_hoc.Resizeable;
+
+public abstract class Shape implements Resizeable {
     private String color="green";
     private boolean filled=true;
     public Shape(){}
@@ -28,6 +30,9 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
+    public abstract double getArea();
+    public abstract double getPerimeter();
+    public abstract void  resize(double percent);
 }
 //class Test{
 //        public static void main(String[] args) {

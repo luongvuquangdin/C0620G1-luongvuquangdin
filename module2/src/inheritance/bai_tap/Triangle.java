@@ -21,7 +21,11 @@ public class Triangle extends Shape {
         return (s1+s2+s3);
     }
 
-//Diện tích tam giác khi biết ba cạnh là một phần hai chu vi nhân với tổng 3 cạnh
+    @Override
+    public void resize(double percent) {
+    }
+
+    //Diện tích tam giác khi biết ba cạnh là một phần hai chu vi nhân với tổng 3 cạnh
     public double getArea(){
         return (getPerimeter()*1/2);
     }

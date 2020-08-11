@@ -1,6 +1,9 @@
 package inheritance.thuc_hanh;
 
-public class Square extends Rectangle {
+import abstract_class_interface.bai_tap.trien_khai_interface_colorable_cho_lop_hinh_hoc.Resizeable;
+import abstract_class_interface.bai_tap.trien_khai_interface_resizeable_cho_lop_hinh_hoc.Colorable;
+
+public class Square extends Rectangle implements Colorable {
     public Square() {
     }
 
@@ -37,6 +40,16 @@ public class Square extends Rectangle {
                 + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        super.resize(percent);
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides..");
     }
 }
 
