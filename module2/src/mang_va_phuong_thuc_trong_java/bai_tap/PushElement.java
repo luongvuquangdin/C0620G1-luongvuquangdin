@@ -5,16 +5,19 @@ import java.util.Scanner;
 
 public class PushElement {
     public static void main(String[] args) {
+//Hiển thị mảng ban đầu
         int[] number= new int[]{10,4,6,7,8,0,0,0,0,0};
         String arrNumber= Arrays.toString(number);
         System.out.println("Mảng ban đầu Array="+arrNumber);
         System.out.println();
+//Phần tử muốn thềm vào
         int length=number.length;
         Scanner sc=new Scanner(System.in);
         System.out.print("Nhập giá trị số nguyên muốn thêm vào mảng: ");
         int number1=sc.nextInt();
         System.out.print("\nNhập vị trí muốn thêm giá trị: ");
         int index=sc.nextInt();
+//Điều kiện thêm vào
         if (index>=length-1||index<0){
             System.out.println("\nkhông có vị trí ");
             System.exit(0);
