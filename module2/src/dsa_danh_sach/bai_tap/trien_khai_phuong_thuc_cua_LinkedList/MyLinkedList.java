@@ -20,6 +20,24 @@ public class MyLinkedList<E> {
     public int size(){
         return numNodes;
     }
+
+    /**Tạo clone sao chép ra một danh sách khác
+     *
+     */
+    public MyLinkedList<E> clone(){
+        MyLinkedList<E> v=new MyLinkedList<E>();
+        v.head=head;
+        Node tempV=v.head;
+        Node temp=head;
+        for (int i=1;i<size();i++){
+            tempV.next=temp.next;
+            temp=temp.next;
+            tempV=tempV.next;
+        }
+        return v;
+
+    }
+
     /**Cộng vào phần tử đầu tiên
      *
      */
@@ -34,13 +52,29 @@ public class MyLinkedList<E> {
      */
     public void addLast(E e){
         Node temp=head;
+        if (head==null){
+            addFirst(e);
+            return;
+        }
         while (temp.next!=null){
         temp=temp.next;
         }
         temp.next=new Node(e);
         numNodes++;
     }
-//    LinkedList
+    /**tìm kiếm nếu có thì trả về vị trí xuất hiện đầu tiên
+     * nếu không thì trả về -1
+     */
+    public int indexOf(E e){
+        Node temp=head;
+        for (int i=0;i<numNodes;i++){
+            if (temp.data.equals(e)){
+                return i;
+            }
+            temp=temp.next;
+        }
+        return -1;
+    }
     /**Cộng vào phần tử ở vị trí index
      *
      */
@@ -65,14 +99,38 @@ public class MyLinkedList<E> {
     /**Lấy phần tử tại vị trí index
      *
      */
-    public Object get(int index){
+    public E get(int index){
+        if (head==null){
+            throw new IndexOutOfBoundsException("Rỗng");
+        }
         Node temp=head;
         for (int i=0;i<index;i++){
             temp=temp.next;
         }
-        return temp.data;
+        return (E) temp.data;
     }
-
+    /**Lấy phần tử ở vị trí đầu
+     *
+     */
+    public E getFirst(){
+        if (head==null){
+            throw new IndexOutOfBoundsException("Rỗng");
+        }
+        return (E) head.data;
+    }
+    /**Lấy phần tử ở vị trí cuối
+     *
+     */
+    public E getLast(){
+        Node temp=head;
+        if (head==null){
+            throw new IndexOutOfBoundsException("Rỗng");
+        }
+        while (temp.next!=null){
+            temp=temp.next;
+        }
+        return (E) temp.data;
+    }
     /**Xóa phần tử tại vị trí index
      *
      */
@@ -96,16 +154,27 @@ public class MyLinkedList<E> {
         }
         return (E) data;
     }
+    /**Kiểm tra phần tử có trong danh sách hay không
+     *
+     */
+    public boolean contains(Object o){
+        Node temp=head;
+        while (temp!=null){
+            if (temp.data.equals(o)){
+                return true;
+            }
+            temp=temp.next;
+        }
+        return false;
+    }
 
     /**Xóa phần tử theo element
      *
      */
-
     public boolean remove(E e){
         Node temp1=head;
         boolean isFalse=false;
         for (int i=0;i<numNodes;i++){
-            System.out.println(temp1.data);
             if (temp1.data.equals(e)){
                 remove(i);
                 temp1=temp1.next;
@@ -122,12 +191,27 @@ public class MyLinkedList<E> {
      */
     public void printList() {
         Node temp = head;
-        while(temp != null) {
+        for (int i=0;i<numNodes;i++){
             System.out.println(temp.data);
             temp = temp.next;
         }
     }
+    /**Xóa đối tượng
+     *
+     */
 
+//    public void clear(){
+//       head=null;
+//       numNodes=0;
+//    }
+    public void clear(){
+        Node temp=head;
+        while (temp.next!=null){
+            temp.data=null;
+            temp=temp.next;
+        }
+        numNodes=0;
+    }
     /**các phần tử liên kết có dạng
      *
      */

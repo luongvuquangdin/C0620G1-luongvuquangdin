@@ -11,7 +11,9 @@ public class MyListTest {
         abc.add(2,2);
         abc.add(3,3);
         abc.add(4,4);
-        MyList<Integer> ac= abc.clone();
+        for (int i=0;i<abc.size();i++){
+            System.out.println(abc.get(i));
+        }
 
 
     }
