@@ -1,18 +1,13 @@
-package dsa_stack_queue.bai_tap;
+package dsa_stack_queue.bai_tap.optional_kiem_tra_dau_ngoac;
 
 import java.util.Scanner;
 import java.util.Stack;
 
 public class CheckBracket {
-    public static void main(String[] args) {
+    public static boolean checkBracket(String string) {
         //bStack chứa dấu ngoặc "("
         Stack<Character> bStack = new Stack<>();
-        boolean isUsedCorrectly=true;
-        //Nhập một đoạn muốn kiểu tra
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a expression you want to check bracket : ");
-        //Kiểm tra cặp dấu ngoặc
-        String string = sc.nextLine();
+
         for (int i = 0; i < string.length(); i++) {
             //nếu là dấu ngoặc '(' thì đưa vào stack
             if (string.charAt(i) == '(') {
@@ -22,17 +17,13 @@ public class CheckBracket {
             //nếu là dấu ')' thì sánh và lấy dấu '(' trong stack để thành 1 cặp '()'
             if (string.charAt(i) == ')') {
                 if (bStack.isEmpty()) {
-                    isUsedCorrectly=false;
-                    break;
-                } else {
+                    return false;
+                }
                     bStack.pop();
                 }
             }
+        return bStack.isEmpty();
         }
         //Kiểm tra xem có đủ cặp '()' không
-        if (bStack.isEmpty()&&isUsedCorrectly){
-            System.out.println("Use correctly");
-        }else System.out.println("improper use");
     }
-}
 
