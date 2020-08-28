@@ -1,11 +1,12 @@
 package io_binary_file_serialization.bai_tap.quan_ly;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
-public class Product implements Serializable{
+public class Product implements Serializable {
     private int id;
     private String name;
-    private  String manufacturer;
+    private String manufacturer;
     private double price;
 
     public Product(int id, String name, String manufacturer, double price) {
@@ -13,6 +14,9 @@ public class Product implements Serializable{
         this.name = name;
         this.manufacturer = manufacturer;
         this.price = price;
+    }
+
+    public Product() {
     }
 
     public int getId() {
@@ -45,6 +49,19 @@ public class Product implements Serializable{
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+
+    public void input() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter id: ");
+        id = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter name: ");
+        name = scanner.nextLine();
+        System.out.print("Enter manufacturer: ");
+        manufacturer = scanner.nextLine();
+        System.out.print("Enter price: ");
+        price = scanner.nextDouble();
     }
 
     @Override
