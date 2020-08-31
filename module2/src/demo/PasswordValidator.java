@@ -3,13 +3,35 @@ package demo;
 import java.util.regex.Pattern;
 
 public class PasswordValidator {
-    private Pattern pattern;
-    private static final String PASSWORD_PATTERN = "((?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!.#$@_+,?-]).{8,50})";
-    public PasswordValidator() {
-        pattern = Pattern.compile(PASSWORD_PATTERN);
+    private int id;
+    private String name;
+
+    public PasswordValidator(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    public boolean validate(final String password) {
-        return pattern.matcher(password).matches();
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "PasswordValidator{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
