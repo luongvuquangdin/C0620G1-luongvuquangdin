@@ -1,0 +1,4 @@
+NameOfCustomer, DayOfBirth, gender, Passport, PhoneNumber, Email, TypeOfCustomer, Address
+Nguyễn Quốc Khánh,17/02/1996,Male,123 123 123,0123123123,Khanh@gmail.com,Vip,Đà Nẵng
+Nguyễn Quốc Khánh,13/04/2000,Male,456 456 456,01929345,Khanh1@gmail.com,Vip,Đà Nẵng
+Châu Bánh Bèo,12/02/1995,Male,431 421 433,0978874123,Chau@gmail.com,Vip,Quảng Nam

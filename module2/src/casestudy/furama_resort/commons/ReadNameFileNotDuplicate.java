@@ -8,11 +8,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class ReadFile {
-
-    //    //get all Villa
-    public static List<Services> getAllVilla(String file){
-        List<Services> listVila=new ArrayList<>();
+public class ReadNameFileNotDuplicate {
+    //Read Villa
+    public static Map<String,Services> readVilla(String file){
+        Map<String,Services> treeMap=new TreeMap<>();
         Villa villa=null;
         FileReader reader=null;
         BufferedReader bfReader=null;
@@ -27,7 +26,7 @@ public class ReadFile {
                 villa=new Villa(string[0],string[1],Double.parseDouble(string[2]),Double.parseDouble(string[3])
                         ,Integer.parseInt(string[4]),string[5],string[6],string[7],Double.parseDouble(string[8])
                         ,Integer.parseInt(string[9]));
-                listVila.add(villa);
+                treeMap.put(villa.getNameServices(),villa);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -49,13 +48,12 @@ public class ReadFile {
                 }
             }
         }
-        return listVila;
+        return treeMap;
     }
 
-
-    //get all House
-    public static List<Services> getAllHouse(String file){
-        List<Services> listHouse=new ArrayList<>();
+    //Read House
+    public static Map<String,Services> readHouse(String file){
+        Map<String,Services> treeMap=new TreeMap<>();
         House house=null;
         FileReader reader=null;
         BufferedReader bfReader=null;
@@ -69,7 +67,7 @@ public class ReadFile {
                 string=str.split(",");
                 house=new House(string[0],string[1],Double.parseDouble(string[2]),Double.parseDouble(string[3])
                         ,Integer.parseInt(string[4]),string[5],string[6],string[7],Integer.parseInt(string[8]));
-                listHouse.add(house);
+                treeMap.put(house.getNameServices(),house);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -91,12 +89,13 @@ public class ReadFile {
                 }
             }
         }
-        return listHouse;
+        return treeMap;
     }
 
-      //get all Room
-      public static List<Services> getAllRoom(String file){
-        List<Services> listRoom=new ArrayList<>();
+
+    //Read Room
+    public static Map<String,Services> readRoom(String file){
+        Map<String,Services> treeMap=new TreeMap<>();
         Room room=null;
         FileReader reader=null;
         BufferedReader bfReader=null;
@@ -110,7 +109,7 @@ public class ReadFile {
                 string=str.split(",");
                 room=new Room(string[0],string[1],Double.parseDouble(string[2]),Double.parseDouble(string[3])
                         ,Integer.parseInt(string[4]),string[5],string[6]);
-                listRoom.add(room);
+                treeMap.put(room.getNameServices(),room);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -132,52 +131,11 @@ public class ReadFile {
                 }
             }
         }
-        return listRoom;
+        return treeMap;
     }
 
-    //Get data Customer in file
-public static List<Customer> getAllCustomer(String file){
-        List<Customer> listCustomer=new ArrayList<>();
-        Customer customer=null;
-        FileReader reader=null;
-        BufferedReader bfReader=null;
-        try {
-            reader=new FileReader(file);
-            bfReader=new BufferedReader(reader);
-            String str=null;
-            String[] string=null;
-            str=bfReader.readLine();
-            while ((str=bfReader.readLine())!=null){
-                string=str.split(",");
-                customer=new Customer(string[0],string[1],string[2],string[3],string[4],string[5],string[6]
-                        ,string[7]);
-                listCustomer.add(customer);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            if (bfReader!=null){
-                try {
-                    bfReader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (reader!=null){
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return listCustomer;
-    }
-
-    public static Stack<Employee> readEmployee(String file){
-        Stack<Employee> listEmployee=new Stack<>();
+    public static Map<String, Employee> readEmployee(String file){
+        Map<String,Employee> linkedHashMap=new LinkedHashMap<>();
         Employee employee=null;
         FileReader reader=null;
         BufferedReader bfReader=null;
@@ -190,7 +148,7 @@ public static List<Customer> getAllCustomer(String file){
             while ((str=bfReader.readLine())!=null){
                 string=str.split(",");
                 employee=new Employee(string[0],string[1],string[2],string[3]);
-                listEmployee.add(employee);
+                linkedHashMap.put(employee.getId(),employee);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -212,9 +170,7 @@ public static List<Customer> getAllCustomer(String file){
                 }
             }
         }
-        return listEmployee;
+        return linkedHashMap;
     }
-
-
 
 }

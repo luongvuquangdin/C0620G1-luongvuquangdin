@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.zip.DataFormatException;
 
-public class Add {
+public class Input {
     private static Scanner scanner = new Scanner(System.in);
 
     private static void input(Services name) {
@@ -171,8 +171,8 @@ public class Add {
             loop=true;
             System.out.print("Enter BirthDay: ");
             dayOfBirth=scanner.nextLine();
-            if (!dayOfBirth.matches("^((0[1-9])|(1\\d)|(2\\d)|3[01])/(0[1-9]|1[12])/((190[1-9])" +
-                    "|(19[1-9]\\d)|200[012])$")){
+            if (!dayOfBirth.matches("^((0[1-9])|(1\\d)|(2\\d)|(3[01]))/((0[1-9])|(1[12]))/((190[1-9])" +
+                    "|(19[1-9]\\d)|(200[012]))$")){
                 try {
                     throw new BirthdayException();
                 } catch (BirthdayException e) {

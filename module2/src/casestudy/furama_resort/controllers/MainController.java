@@ -1,9 +1,11 @@
 package casestudy.furama_resort.controllers;
 
-import casestudy.furama_resort.commons.Add;
-import casestudy.furama_resort.commons.ReadFile;
-import casestudy.furama_resort.commons.WriteFile;
+import casestudy.furama_resort.commons.*;
 import casestudy.furama_resort.models.*;
+import casestudy.furama_resort.views.ShowCinemaCustomer;
+import casestudy.furama_resort.views.ShowCustomer;
+import casestudy.furama_resort.views.ShowEmployee;
+import casestudy.furama_resort.views.ShowServices;
 
 import java.util.*;
 
@@ -14,23 +16,38 @@ public class MainController {
     private static final String HEAD_HOUSE = HEAD + ", Standard, TheFacility, NumberOfFloor";
     private static final String HEAD_ROOM = HEAD + ", FreeServices";
     private static final String HEAD_CUSTOMER = "NameOfCustomer, DayOfBirth, gender, Passport, PhoneNumber, Email, TypeOfCustomer, Address";
+    private static final String HEAD_BOOKING = HEAD_CUSTOMER + ",Services";
     //Link file
     private static final String FILE_VILLA = "D:\\New folder\\C0620G1-luongvuquangdin\\module2\\src\\casestudy\\furama_resort\\data\\Villa.csv";
     private static final String FILE_HOUSE = "D:\\New folder\\C0620G1-luongvuquangdin\\module2\\src\\casestudy\\furama_resort\\data\\House.csv";
     private static final String FILE_ROOM = "D:\\New folder\\C0620G1-luongvuquangdin\\module2\\src\\casestudy\\furama_resort\\data\\Room.csv";
     private static final String FILE_CUSTOMER = "D:\\New folder\\C0620G1-luongvuquangdin\\module2\\src\\casestudy\\furama_resort\\data\\Customer.csv";
+    private static final String FILE_BOOKING = "D:\\New folder\\C0620G1-luongvuquangdin\\module2\\src\\casestudy\\furama_resort\\data\\Booking.csv";
+    private static final String FILE_EMPLOYESS = "D:\\New folder\\C0620G1-luongvuquangdin\\module2\\src\\casestudy\\furama_resort\\data\\Employee.csv";
     //Object
     private static Villa villa;
     private static House house;
     private static Room room;
     private static Customer customer;
+    //Số vé xem phim
+    private static int ticket=4;
     //method nhap
     private static Scanner scanner = new Scanner(System.in);
-    //List de hien thi
+    //List để lưu Services
     private static List<Services> list = new ArrayList<>();
+    //List để lư Customer
     private static List<Customer> listCustomer = new ArrayList<>();
+    //Map để lưu Name và Services để hiển thị không trùng tên
+    private static Map<String, Services> treeMap = new TreeMap<>();
+    //Map để lưu Id và Employee
+    private static Map<String, Employee> linkedHashMap = new LinkedHashMap<>();
+    //Queue để lưu những Customer đặt vé xem phim
+    private static Queue<Customer> cinemaCustomer=new ArrayDeque<>();
+    //Tử hồ sơ để lưu nhân viên
+    private static FileCabinets fileCabinest=new FileCabinets();
 
-    //    private static TreeMap<String,Services> tree=new TreeMap<>();
+
+
     public static void displayMainMenu() {
         villa = new Villa();
         house = new House();
@@ -48,7 +65,8 @@ public class MainController {
                     "4. Show Information of Customer\n" +
                     "5. Add New Booking\n" +
                     "6. Show Information of Employee\n" +
-                    "7. Exit");
+                    "7. Search Employee with Id\n"+
+                    "8. Exit");
             System.out.print("Enter choose: ");
             String choose = scanner.nextLine();
 
@@ -61,23 +79,32 @@ public class MainController {
                     break;
                 case "3":
                     System.out.println("Input new Customer");
-                    Add.inputCustomer(customer);
+                    Input.inputCustomer(customer);
                     WriteFile.writerCustomer(FILE_CUSTOMER, customer);
                     break;
                 case "4":
                     listCustomer = ReadFile.getAllCustomer(FILE_CUSTOMER);
-                    Collections.sort(listCustomer);
-                    for (Customer customer_1 : listCustomer) {
-                        customer_1.showInformation();
-                    }
+                    ShowCustomer.show(listCustomer);
                     listCustomer.clear();
                     break;
                 case "5":
                     addNewBooking();
                     break;
                 case "6":
+                    linkedHashMap = ReadNameFileNotDuplicate.readEmployee(FILE_EMPLOYESS);
+                    ShowEmployee.show(linkedHashMap);
+                    linkedHashMap.clear();
                     break;
                 case "7":
+                    fileCabinest.add(ReadFile.readEmployee(FILE_EMPLOYESS));
+                    String id=null;
+                    do {
+                        System.out.print("Insert Id you want to search: (XXX example: 001)");
+                        id=scanner.nextLine();
+                    }while (!id.matches("^\\d{3}$"));
+                    fileCabinest.search(id);
+                    break;
+                case "8":
                     System.exit(0);
                     break;
                 default:
@@ -101,17 +128,17 @@ public class MainController {
             switch (choose) {
                 case "1":
                     System.out.println("Input New Villa: ");
-                    Add.inputVilla(villa);
+                    Input.inputVilla(villa);
                     WriteFile.writerServices(FILE_VILLA, villa);
                     break;
                 case "2":
                     System.out.println("Input New House: ");
-                    Add.inputHouse(house);
+                    Input.inputHouse(house);
                     WriteFile.writerServices(FILE_HOUSE, house);
                     break;
                 case "3":
                     System.out.println("Input New Room: ");
-                    Add.inputRoom(room);
+                    Input.inputRoom(room);
                     WriteFile.writerServices(FILE_ROOM, room);
                     break;
                 case "4":
@@ -148,30 +175,39 @@ public class MainController {
             switch (choose) {
                 case "1":
                     list = ReadFile.getAllVilla(FILE_VILLA);
-                    for (Services services : list) {
-                        services.showInformation();
-                    }
+                    ShowServices.show(list);
                     list.clear();
                     break;
                 case "2":
                     list = ReadFile.getAllHouse(FILE_HOUSE);
-                    for (Services services : list) {
-                        services.showInformation();
-                    }
+                    ShowServices.show(list);
                     list.clear();
                     break;
                 case "3":
                     list = ReadFile.getAllRoom(FILE_ROOM);
-                    for (Services services : list) {
-                        services.showInformation();
-                    }
+                    ShowServices.show(list);
                     list.clear();
                     break;
                 case "4":
+                    treeMap = ReadNameFileNotDuplicate.readVilla(FILE_VILLA);
+                    for (Map.Entry<String, Services> entry : treeMap.entrySet()) {
+                        System.out.println(entry.toString());
+                    }
+                    treeMap.clear();
                     break;
                 case "5":
+                    treeMap = ReadNameFileNotDuplicate.readHouse(FILE_HOUSE);
+                    for (Map.Entry<String, Services> entry : treeMap.entrySet()) {
+                        System.out.println(entry.toString());
+                    }
+                    treeMap.clear();
                     break;
                 case "6":
+                    treeMap = ReadNameFileNotDuplicate.readRoom(FILE_ROOM);
+                    for (Map.Entry<String, Services> entry : treeMap.entrySet()) {
+                        System.out.println(entry.toString());
+                    }
+                    treeMap.clear();
                     break;
                 case "7":
                     loop = false;
@@ -187,54 +223,117 @@ public class MainController {
     }
 
     private static void addNewBooking() {
-        System.out.println("List Customer:");
-        //Lấy danh sách Customer
-        listCustomer = ReadFile.getAllCustomer(FILE_CUSTOMER);
-        //Sắp xếp
-        Collections.sort(listCustomer);
-        //Hiển thị theo thứ tự
-        for (int i = 0; i < listCustomer.size(); i++) {
-            System.out.print((i + 1) + ": ");
-            listCustomer.get(i).showInformation();
-        }
-        //Chọn Customer để booking
-        System.out.print("Choose Customer: ");
-        String choose = scanner.nextLine();
-        customer = listCustomer.get(Integer.parseInt(choose) - 1);
-        //Hiển thị danh sách để
-        System.out.println("1. Booking Villa\n" +
-                "2. Booking House\n" +
-                "3. Booking Room");
-        System.out.print("Choose Services: ");
-        String choose_1 = scanner.nextLine();
-        switch (choose) {
-            case "1":
-                list=ReadFile.getAllVilla(FILE_VILLA);
-                for (int i=0;i<list.size();i++){
-                    System.out.print((i+1)+": ");
-                    list.get(i).showInformation();
-                }
-                list.clear();
-                break;
-            case "2":
-                list=ReadFile.getAllHouse(FILE_HOUSE);
-                for (int i=0;i<list.size();i++){
-                    System.out.print((i+1)+": ");
-                    list.get(i).showInformation();
-                }
-                list.clear();
-                break;
-            case "3":
-                list=ReadFile.getAllRoom(FILE_ROOM);
-                for (int i=0;i<list.size();i++){
-                    System.out.print((i+1)+": ");
-                    list.get(i).showInformation();
-                }
-                list.clear();
-                break;
+        customer = ChooseCustomer.chooseCustomer(FILE_CUSTOMER);
+        String choose = null;
+        boolean loop = true;
+        while (loop) {
+            System.out.println("1. Booking Services\n" +
+                    "2. Booking Cinema Ticket\n" +
+                    "3. Back Menu\n" +
+                    "4. Exit");
+            System.out.print("Enter choose: ");
+            choose = scanner.nextLine();
+            switch (choose) {
+                case "1":
+                    bookingServices();
+                    loop=false;
+                    break;
+                case "2":
+                    bookingCinemaTicket();
+                    loop=false;
+                    break;
+                case "3":
+                    loop=false;
+                    break;
+                case "4":
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Menu don't have your choose");
+                    break;
+            }
         }
 
-        listCustomer.clear();
+
+    }
+
+    private static void bookingServices() {
+        WriteFile.writerHead(FILE_BOOKING, HEAD_BOOKING);
+        boolean loop = true;
+        String choose_1=null;
+        //Hiển thị danh sách để Booking Services
+        while (loop) {
+            System.out.println("1. Booking Villa\n" +
+                    "2. Booking House\n" +
+                    "3. Booking Room\n" +
+                    "4. Back Menu\n" +
+                    "5. Exit");
+            System.out.print("Choose Services: ");
+            choose_1 = scanner.nextLine();
+            String choose_2 = null;
+            switch (choose_1) {
+                case "1":
+                    //Hiển thị danh sách Villa
+                    list = ReadFile.getAllVilla(FILE_VILLA);
+                    ShowServices.show(list);
+                    //Chọn Villa
+                    choose_2 = scanner.nextLine();
+                    villa = (Villa) list.get(Integer.parseInt(choose_2) - 1);
+                    //Lưu Villa cho Customer
+                    customer.setServices(villa);
+                    //Ghi customer Cùng với Services vào booking
+                    WriteFile.writerBooking(FILE_BOOKING, customer);
+                    list.clear();
+                    loop=false;
+                    break;
+                case "2":
+                    //Hiển thị danh sách House
+                    list = ReadFile.getAllHouse(FILE_HOUSE);
+                    ShowServices.show(list);
+                    //Chọn House
+                    choose_2 = scanner.nextLine();
+                    house = (House) list.get(Integer.parseInt(choose_2) - 1);
+                    //Lưu House cho Customer
+                    customer.setServices(house);
+                    //Ghi customer Cùng với Services vào booking
+                    WriteFile.writerBooking(FILE_BOOKING, customer);
+                    list.clear();
+                    loop=false;
+                    break;
+                case "3":
+                    //Hiển thị danh sách Room
+                    list = ReadFile.getAllRoom(FILE_ROOM);
+                    ShowServices.show(list);
+                    //Chọn Room
+                    choose_2 = scanner.nextLine();
+                    room = (Room) list.get(Integer.parseInt(choose_2) - 1);
+                    //Lưu Room cho Customer
+                    customer.setServices(room);
+                    //Ghi customer Cùng với Services vào booking
+                    WriteFile.writerBooking(FILE_BOOKING, customer);
+                    list.clear();
+                    loop=false;
+                    break;
+                case "4":
+                    loop=false;
+                    break;
+                case "5":
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Menu don't have your choose");
+                    break;
+            }
+            listCustomer.clear();
+        }
+    }
+
+
+    private static void bookingCinemaTicket(){
+        if (ticket>0) {
+            cinemaCustomer.add(customer);
+            ticket--;
+        }else ShowCinemaCustomer.show(cinemaCustomer);
     }
 }
 

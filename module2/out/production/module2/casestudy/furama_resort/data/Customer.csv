@@ -1,6 +1,4 @@
-
-Anh Khanh,13/12/1999,Male,123 123 123,123123123,123@gmail.com,12313,123123
-Anh Khanh,11/11/1994,Male,242 234 123,123123,123123@gmail.com,123123,123123
-Anh Khanh,11/12/2000,Male,123 123 432,1234,4@gamilc.omm,ád,ad
-Banh Khanh,12/12/1999,Male,123 123 123,123,123@gmal.com,123,123
-Canh Khanh,12/03/1995,Female,123 123 123,123124,12@gmail.com,123,123
+NameOfCustomer, DayOfBirth, gender, Passport, PhoneNumber, Email, TypeOfCustomer, Address
+Nguyễn Quốc Khánh,17/02/1996,Male,123 123 123,0123123123,Khanh@gmail.com,Vip,Đà Nẵng
+Nguyễn Quốc Khánh,13/04/2000,Male,456 456 456,01929345,Khanh1@gmail.com,Vip,Đà Nẵng
+Châu Bánh Bèo,12/02/1995,Male,431 421 433,0978874123,Chau@gmail.com,Vip,Quảng Nam
