@@ -1,0 +1,7 @@
+a,articles,một
+school,adjective,trường
+class,adjective,lớp học
+move,verb,di chuyển
+go,verb,đi
+clear,verb,xóa,dọn dẹp
+save,verb,lưu trữ

@@ -113,7 +113,7 @@ public class ReadFile {
                 listRoom.add(room);
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         }finally {

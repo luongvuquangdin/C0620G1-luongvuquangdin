@@ -1,22 +1,16 @@
-package demo;
+package casestudy.thu_vien.commons;
 
-import casestudy.furama_resort.models.Villa;
 import casestudy.thu_vien.models.Entities;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class PasswordValidatorDemo {
+public class ReadFileObject {
     private static final String FILE_DICTIONARY="D:\\New folder\\C0620G1-luongvuquangdin\\module2\\src\\" +
             "casestudy\\thu_vien\\data\\Dictionary.txt";
-    public static void main(String[] args) {
+
+    public static List<Entities> read(){
         List<Entities> list_1=new ArrayList<>();
         FileInputStream file=null;
         ObjectInputStream oIS =null;
@@ -45,8 +39,6 @@ public class PasswordValidatorDemo {
                 }
             }
         }
-        for (int i=0;i<list_1.size();i++){
-            System.out.println(list_1.get(i).toString());
-        }
+        return list_1;
     }
-    }
+}
