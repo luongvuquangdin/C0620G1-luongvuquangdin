@@ -157,7 +157,6 @@ public class Input {
                 try {
                     throw new NameException();
                 } catch (NameException e) {
-
                     System.out.println(e.getError());
                     loop=false;
                 }

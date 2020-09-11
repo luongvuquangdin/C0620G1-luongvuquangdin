@@ -175,23 +175,36 @@ public class MainController {
             switch (choose) {
                 case "1":
                     list = ReadFile.getAllVilla(FILE_VILLA);
-                    ShowServices.show(list);
-                    list.clear();
+                    if (list.size()==0){
+                        System.out.println("Villa nothing");
+                    }else {
+                        ShowServices.show(list);
+                        list.clear();
+                    }
                     break;
                 case "2":
                     list = ReadFile.getAllHouse(FILE_HOUSE);
-                    ShowServices.show(list);
-                    list.clear();
+                    if (list.size()==0){
+                        System.out.println("House nothing");
+                    }else {
+                        ShowServices.show(list);
+                        list.clear();
+                    }
                     break;
                 case "3":
                     list = ReadFile.getAllRoom(FILE_ROOM);
-                    ShowServices.show(list);
-                    list.clear();
+                    if (list.size()==0){
+                        System.out.println("Room nothing");
+                    }else {
+                        ShowServices.show(list);
+                        list.clear();
+                    }
                     break;
                 case "4":
                     treeMap = ReadNameFileNotDuplicate.readVilla(FILE_VILLA);
-                    for (Map.Entry<String, Services> entry : treeMap.entrySet()) {
-                        System.out.println(entry.toString());
+                    Set<String> keySet=treeMap.keySet();
+                    for (String key: keySet){
+                        treeMap.get(key).showInformation();
                     }
                     treeMap.clear();
                     break;
