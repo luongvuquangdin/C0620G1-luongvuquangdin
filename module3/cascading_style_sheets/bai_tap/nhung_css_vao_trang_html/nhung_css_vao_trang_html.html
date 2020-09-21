@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhúng css vào trang html</title>
+    <link rel="stylesheet" href="external.css">
+    <style>
+        #internal {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<h1>This is heading 1</h1>
+<!--Thay đổi mày sắc sử dụng inline-->
+<p style="color: red">This is an ordinary paragraph. Notice that this text is blue . The default
+text color for a  page is defined in the body selector</p>
+<!--Thay đổi mày sắc sử dụng internal-->
+<p id="internal">This is an ordinary paragraph. Notice that this text is blue . The default
+    text color for a  page is defined in the body selector</p>
+<!--Thay đổi mày sắc sử dụng external-->
+<p id="external">This is an ordinary paragraph. Notice that this text is blue . The default
+    text color for a  page is defined in the body selector</p>
+</body>
+</html>
