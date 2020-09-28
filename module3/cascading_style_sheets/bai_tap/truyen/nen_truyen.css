@@ -1,0 +1,62 @@
+
+li{
+    display: inline;
+    color: white;
+    margin: 15px;
+}
+ul{
+    background-color: #f18121;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px;
+}
+a {
+    text-decoration: none;
+}
+#image-1{
+    width: 300px;
+    height: 200px;
+    color: white;
+    background-image: url("http://i.mangaqq.com/slider/290x191/slider_1559213484.jpg?r=r8645456");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 5px;
+}
+#image-2{
+    width: 300px;
+    height: 200px;
+    color: white;
+    background-image: url("http://i.mangaqq.com/slider/290x191/slider_1567830171.jpg?r=r8645456");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top: unset;
+}
+#image-3{
+    width: 600px;
+    height: 405px;
+    color: white;
+    background-image: url("http://i.mangaqq.com/slider/583x386/slider_1559213335.jpg?r=r8645456");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+#image-4{
+    width: 300px;
+    height: 200px;
+    color: white;
+    background-image: url("http://i.mangaqq.com/slider/290x191/slider_1561609693.jpg?r=r8645456");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 5px;
+}
+#image-5{
+    width: 300px;
+    height: 200px;
+    color: white;
+    background-image: url("http://i.mangaqq.com/slider/290x191/slider_1560573084.jpg?r=r8645456");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top: unset;
+}
