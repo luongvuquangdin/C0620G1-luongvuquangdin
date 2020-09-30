@@ -18,4 +18,11 @@ public interface IUserDAO {
 
     List<User> findByCountry(String country);
 
+    List<User> displayUser();
+
+    boolean updateUserByProcedure(User user);
+
+    public boolean deleteUserByProcedure(int id) throws SQLException;
+
+
 }
