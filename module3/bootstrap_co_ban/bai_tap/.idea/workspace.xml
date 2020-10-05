@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f61f7dec-708f-4a27-a7d6-ee97b3f85a10" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../casestudy_2/sever/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../casestudy_2/sever/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../casestudy_2/sever/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../casestudy_2/sever/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../casestudy_2/sever/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../casestudy_2/sever/src/main/java/controller/HomeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../casestudy_2/sever/src/main/webapp/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../casestudy_2/sever/src/main/webapp/delete.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../casestudy_2/sever/src/main/webapp/display.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../casestudy_2/sever/src/main/webapp/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../dependency_management_packaging/bai_tap/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../dependency_management_packaging/bai_tap/src/main/java/controller/UserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../dependency_management_packaging/bai_tap/src/main/java/dao/IUserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../dependency_management_packaging/bai_tap/src/main/java/dao/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../dependency_management_packaging/bai_tap/src/main/java/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../dependency_management_packaging/bai_tap/src/main/webapp/user/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../dependency_management_packaging/bai_tap/src/main/webapp/user/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../dependency_management_packaging/bai_tap/src/main/webapp/user/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../dependency_management_packaging/bai_tap/src/main/webapp/user/listFind.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../jdbc_querying_&amp;_transaction/bai_tap/luyen_tap_mysql_jdbc_transaction/src/controller/UserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../jdbc_querying_&amp;_transaction/bai_tap/luyen_tap_mysql_jdbc_transaction/src/dao/IUserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../jdbc_querying_&amp;_transaction/bai_tap/luyen_tap_mysql_jdbc_transaction/src/dao/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../jdbc_querying_&amp;_transaction/bai_tap/luyen_tap_mysql_jdbc_transaction/src/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../jdbc_querying_&amp;_transaction/bai_tap/luyen_tap_mysql_jdbc_transaction/web/user/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../jdbc_querying_&amp;_transaction/bai_tap/luyen_tap_mysql_jdbc_transaction/web/user/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../jdbc_querying_&amp;_transaction/bai_tap/luyen_tap_mysql_jdbc_transaction/web/user/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../jdbc_querying_&amp;_transaction/bai_tap/luyen_tap_mysql_jdbc_transaction/web/user/listFind.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1iHWnsq6xDCbEPWvoxS2lrRy6eU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f61f7dec-708f-4a27-a7d6-ee97b3f85a10" name="Default Changelist" comment="" />
+      <created>1601565167907</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601565167907</updated>
+      <workItem from="1601565169201" duration="10000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
