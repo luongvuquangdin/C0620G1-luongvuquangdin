@@ -1,11 +1,11 @@
 package controller;
 
-import bo.bocustomer.CustomerBO;
-import bo.bocustomer.CustomerBOImpl;
-import bo.bocustomer.CustomerTypeBO;
-import bo.bocustomer.CustomerTypeBOimpl;
-import model.modelcustomer.Customer;
-import model.modelcustomer.CustomerType;
+import bo.customer_bo.CustomerBO;
+import bo.customer_bo.CustomerBOImpl;
+import bo.customer_bo.CustomerTypeBO;
+import bo.customer_bo.CustomerTypeBOimpl;
+import model.customer.Customer;
+import model.customer.CustomerType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -38,7 +38,7 @@
             </tr>
             <tr>
                 <td><label for="Birthday">Birthday: </label></td>
-                <td><input type="text" name="birthdayEmployee" id="Birthday" value='<c:out value="${employee.employeeBirthday}"/>'>
+                <td><input type="date" name="birthdayEmployee" id="Birthday" value='<c:out value="${employee.employeeBirthday}"/>'>
                 </td>
             </tr>
             <tr>

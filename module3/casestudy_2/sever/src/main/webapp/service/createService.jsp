@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Create new Employee</title>
+    <title>Create new service</title>
     <style>
         .message{
             color:green;
@@ -29,7 +29,7 @@
 <form action="/service" method="post">
     <input type="hidden" name="actionService" value="create">
     <fieldset>
-        <legend>Employee information</legend>
+        <legend>Service information</legend>
         <table>
             <tr>
                 <td><label for="id">Id: </label></td>

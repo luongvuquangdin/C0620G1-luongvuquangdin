@@ -206,26 +206,26 @@ create table contract (
 	contract_id int primary key auto_increment,
     contract_start_date datetime,
     contract_end_date datetime,
-    contract_deposite double,
+    contract_deposit double,
     contract_total_money double,
     
     employee_id int,
-    foreign key(employee_id) references employee(employee_id),
+    foreign key(employee_id) references employee(employee_id) on delete cascade on update cascade,
     
     customer_id varchar(25),
-    constraint fk_customer foreign key(customer_id) references customer(customer_id),
+    constraint fk_customer foreign key(customer_id) references customer(customer_id) on delete cascade on update cascade,
     
     service_id varchar(25),
-    constraint fk_service foreign key(service_id) references service(service_id)
+    constraint fk_service foreign key(service_id) references service(service_id) on delete cascade on update cascade
 );
 
-insert into contract (contract_id, contract_start_date, contract_end_date, contract_deposite, employee_id, customer_id, service_id)
+insert into contract (contract_id, contract_start_date, contract_end_date, contract_deposit, employee_id, customer_id, service_id)
 values
 	(1, '2019-01-01', '2019-02-01', 100, 1, 'KH-6789', 'DV-6789'),
-	(2, '2019-01-01', '2019-02-01', 100, 2, 'KH-0202', 'DV-0515'),
-	(3, '2019-01-01', '2019-01-08', 100, 3, 'KH-0515', 'DV-0202'),
-	(4, '2019-01-01', '2019-01-08', 100, 4, 'KH-0606', 'DV-0606'),
-	(5, '2019-01-01', '2019-01-02', 100, 5, 'KH-0902', 'DV-0902');
+	(2, '2020-10-01', '2020-11-01', 100, 2, 'KH-0202', 'DV-0515'),
+	(3, '2020-09-01', '2020-09-08', 100, 3, 'KH-0515', 'DV-0202'),
+	(4, '2020-10-05', '2020-10-11', 100, 4, 'KH-0606', 'DV-0606'),
+	(5, '2020-09-01', '2020-11-02', 100, 5, 'KH-0902', 'DV-0902');
 
 create table contract_detail (
 	contract_detail_id int primary key auto_increment,

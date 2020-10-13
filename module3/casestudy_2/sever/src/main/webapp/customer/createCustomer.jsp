@@ -43,7 +43,7 @@
             </tr>
             <tr>
                 <td><label for="Birthday">Birthday: </label></td>
-                <td><input type="text" name="birthdayCustomer" id="Birthday" value='<c:out value="${customer.getCustomerBirthday()}"/>'>
+                <td><input type="date" name="birthdayCustomer" id="Birthday" value='<c:out value="${customer.getCustomerBirthday()}"/>'>
                 </td>
             </tr>
             <tr>

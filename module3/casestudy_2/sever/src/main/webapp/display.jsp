@@ -73,11 +73,20 @@
             </div>
         </div>
         <div class="col-lg-4" style="height: 100%">
-            <i class="fas fa-phone-alt"></i>
-            <span>84-236-3847 333/888</span>
-            <br>
-            <i class="fas fa-envelope"></i>
-            <span>reservation@furamavietnam.com</span>
+            <div class="row">
+                <div class="col-lg-6">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>84-236-3847 333/888</span>
+                    <br>
+                    <i class="fas fa-envelope"></i>
+                    <span>reservation@furamavietnam.com</span>
+                </div>
+                <div class="col-lg-6">
+                    <form action="/login">
+                        <input type="submit" value="Login">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -100,6 +109,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  text-dark" href="/home?action=contract">Contract</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-dark" href="/home?action=contractDetail">Contract-detail</a>
                 </li>
             </ul>
         </div>
@@ -143,12 +155,12 @@
                                         <th>Name</th>
                                         <th>Birthday</th>
                                         <th>Gender</th>
-                                        <th>IdCard</th>
+                                        <th>Id Card</th>
                                         <th>Phone</th>
                                         <th>Email</th>
                                         <th>Address</th>
-                                        <th>TypeId</th>
-                                        <th></th>
+                                        <th>Type Id</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -173,7 +185,6 @@
                                 </table>
                             </div>
                         </div>
-                    </table>
                 </c:when>
                 <c:when test="${action.equals('employee')}">
                     <div class="row">
@@ -197,12 +208,12 @@
                                     <th>Phone</th>
                                     <th>Email</th>
                                     <th>Address</th>
-                                    <th>position</th>
+                                    <th>Position</th>
                                     <th>education
                                         Degree</th>
-                                    <th>division</th>
-                                    <th>userName</th>
-                                    <th></th>
+                                    <th>Division</th>
+                                    <th>User Name</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -246,12 +257,12 @@
                                     <th>Area</th>
                                     <th>Cost</th>
                                     <th>MaxPeople</th>
-                                    <th>standard Room</th>
-                                    <th>description Other Convenience</th>
-                                    <th>pool Area</th>
-                                    <th>number Of Floors</th>
-                                    <th>rent Type Name</th>
-                                    <th>service Type Name</th>
+                                    <th>Standard Room</th>
+                                    <th>Description Other Convenience</th>
+                                    <th>Pool Area</th>
+                                    <th>Number Of Floors</th>
+                                    <th>Rent Type Name</th>
+                                    <th>Service Type Name</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -276,8 +287,100 @@
                     </div>
                     </table>
                 </c:when>
+                <c:when test="${action.equals('contract')}">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2>
+                                <a href="/contract?actionContract=create">Add New contract</a>
+                            </h2>
+                            <table id="tableContract" class="table table-bordered table-light border border-dark text-dark" style="width:100%">
+                                <thead>
+                                <h2>List of contract</h2>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Deposit</th>
+                                    <th>Total Money</th>
+                                    <th>Employee name</th>
+                                    <th>Customer name</th>
+                                    <th>Service Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="contract" items="${contractList}">
+                                    <tr>
+                                        <td><c:out value='${contract.contractId}'/></td>
+                                        <td><c:out value='${contract.contractStartDate}'/></td>
+                                        <td><c:out value="${contract.contractEndDate}"/></td>
+                                        <td><c:out value="${contract.contractDeposit}"/></td>
+                                        <td><c:out value="${contract.contractTotalMoney}"/></td>
+                                        <td><c:out value="${contract.employeeId}"/></td>
+                                        <td><c:out value="${contract.customerId}"/></td>
+                                        <td><c:out value="${contract.serviceId}"/></td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </table>
+                </c:when>
+                <c:when test="${action.equals('contractDetail')}">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2>
+                                <a href="/contractDetail?actionContractDetail=create">Add New contract detail</a>
+                            </h2>
+                            <table id="tableContractDetail" class="table table-bordered table-light border border-dark text-dark" style="width:100%">
+                                <thead>
+                                <h2>List of contract detail</h2>
+                                <tr>
+                                    <th>contract Id</th>
+                                    <th>Attach Service Id</th>
+                                    <th>Quantity</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="contractDetail" items="${contractDetailList}">
+                                    <tr>
+                                        <td><c:out value="${contractDetail.contractId}"/></td>
+                                        <td><c:out value="${contractDetail.attachServiceId}"/></td>
+                                        <td><c:out value='${contractDetail.quantity}'/></td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </table>
+                </c:when>
                 <c:otherwise>
-                    <h1>Welcome to Furama</h1>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table id="tableCustomerUsing" class="table table-bordered table-light border border-dark text-dark" style="width:100%">
+                                <thead>
+                                <h2>List customer using service</h2>
+                                <tr>
+                                    <th>Customer Id</th>
+                                    <th>Customer Name</th>
+                                    <th>Contact Id</th>
+                                    <th>Attach Service Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="customerUsing" items="${customerUsingList}">
+                                    <tr>
+                                        <td><c:out value="${customerUsing.customerId}"/></td>
+                                        <td><c:out value="${customerUsing.customerName}"/></td>
+                                        <td><c:out value='${customerUsing.contactId}'/></td>
+                                        <td><c:out value='${customerUsing.attachServiceName}'/></td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </c:otherwise>
             </c:choose>
             <form action="/customers" method="post" id="deleteCustomer">
@@ -339,6 +442,28 @@
             "pageLength": 5
         } );
     } );
+    $(document).ready(function() {
+        $('#tableContract').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        } );
+    } );
+    $(document).ready(function() {
+        $('#tableContractDetail').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        } );
+    } );
+    $(document).ready(function() {
+        $('#tableCustomerUsing').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        } );
+    } );
+
 
 </script>
 <script>
@@ -367,6 +492,5 @@
     }
 
 </script>
-</body>
 </body>
 </html>

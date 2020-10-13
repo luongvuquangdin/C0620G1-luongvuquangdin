@@ -1,7 +1,6 @@
 package controller;
 
-import bo.boservice.*;
-import dao.daocustomer.ConnectDatabase;
+import bo.service_bo.*;
 import model.service.RentType;
 import model.service.Service;
 import model.service.ServiceType;
@@ -12,9 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "ServiceServlet",urlPatterns = "/service")

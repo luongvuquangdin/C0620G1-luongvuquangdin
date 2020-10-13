@@ -1,7 +1,7 @@
 package controller;
 
-import bo.boemployee.*;
-import model.modelemployee.*;
+import bo.employee_bo.*;
+import model.employee.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
