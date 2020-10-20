@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="hibernate.conf.xml/Hibernate" uuid="1f9a774f-c90b-4e2c-8e1d-4b428fd76fdb">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+D:/code/C0620G1-luongvuquangdin/module4/CSDL_va_ORM/thuc_hanh/quan_ly_danh_sach_khach_hang/cms/src/main/resources/hibernate.conf.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/cms?createDatabaseIfNotExist=true</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="hibernate.conf.xml/Hibernate" uuid="f749533b-8370-4aa4-9667-81349c1e1a25">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+D:/code/C0620G1-luongvuquangdin/module4/CSDL_va_ORM/thuc_hanh/quan_ly_danh_sach_khach_hang/cms/build/resources/main/hibernate.conf.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/cms?CreateDatabaseIfNotExist=true</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="hibernate.conf.xml/Hibernate" uuid="f8ef6dcd-582f-4780-bd45-477ad06fdc18">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+D:/code/C0620G1-luongvuquangdin/module4/CSDL_va_ORM/thuc_hanh/quan_ly_danh_sach_khach_hang/cms/src/main/resources/hibernate.conf.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/cms?createDatabaseIfNotExist=true</jdbc-url>
+    </data-source>
+  </component>
+</project>
