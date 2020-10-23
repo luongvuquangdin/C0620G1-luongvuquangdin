@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+            text-decoration: none;
+            background-color: red;
+            color: white;
+            border: 1px solid black;
+        }
+        table,th,tr,td{
+            border-collapse: collapse;
+            border :1px solid black
+        }
+    </style>
+</head>
+<body>
+<form action="/static">
+    <input type="text" name="keyWord" th:value="${keyWord}">
+    <input type="submit" value="Search">
+</form>
+<a th:href="@{/create}">Create New Customer</a>
+<h1>List Customer</h1>
+<table>
+    <tr>
+        <td>#</td>
+        <td>Name</td>
+        <td>Address</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    <tr th:each="customer : ${listCustomer}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.province.name}"></td>
+        <td><a th:href="@{/edit/{id}(id=${customer.id})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${customer.id})}">Delete</a></td>
+    </tr>
+</table>
+<div th:if="${listCustomer.totalPages!=0}">
+<a th:if="${listCustomer.hasPrevious()}" th:href="@{/static(page=${listCustomer.number}-1 , keyWord=${keyWord})}">Previous</a>
+<span th:text="${listCustomer.number+1}"></span>/<span th:text="${listCustomer.totalPages}"></span>
+<a th:if="${listCustomer.hasNext()}" th:href="@{/(page=${listCustomer.number}+1 , keyWord=${keyWord})}">Next</a>
+</div>
+</body>
+</html>

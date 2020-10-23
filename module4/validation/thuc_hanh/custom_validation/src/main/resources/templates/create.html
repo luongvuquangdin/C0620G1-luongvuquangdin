@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<a th:href="@{/back}">Back</a>
+<fieldset>
+    <legend>Customer</legend>
+    <form action="/create" method="post" th:object="${customer}">
+        <table>
+            <tr>
+                <td><label>Name</label></td>
+                <td><input type="text" th:field="*{name}"></td>
+                <td><p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p></td>
+            </tr>
+            <tr>
+                <td><label>Age</label></td>
+                <td><input type="text" th:field="*{age}"></td>
+                <td><p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p></td>
+            </tr>
+            <tr>
+                <td><label>Phone</label></td>
+                <td><input type="text" th:field="*{phone}"></td>
+                <td><p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><input type="submit" value="Create"></td>
+            </tr>
+        </table>
+
+    </form>
+</fieldset>
+</body>
+</html>
