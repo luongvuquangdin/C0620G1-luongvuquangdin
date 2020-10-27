@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>user name</title>
+</head>
+<body>
+<th:block th:fragment="headName">
+<h1>Welcome : <span th:text="${user.email}"></span></h1>
+</th:block>
+</body>
+</html>
