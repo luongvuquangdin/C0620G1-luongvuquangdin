@@ -1,8 +1,8 @@
-package com.blog.blog.service.impl;
+package com.ajax.service.impl;
 
-import com.blog.blog.entity.Blog;
-import com.blog.blog.repository.BlogRepository;
-import com.blog.blog.service.BlogService;
+import com.ajax.entity.Blog;
+import com.ajax.repository.BlogRepository;
+import com.ajax.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -37,5 +37,16 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public void delete(Integer id) {
         this.blogRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Blog> findAll() {
+        return this.blogRepository.findAll();
+    }
+
+    @Override
+    public List<Blog> findAllByCategory_NameCategory(String name){
+        List<Blog> blogs = this.blogRepository.findAllByCategory_NameCategory(name);
+        return blogs;
     }
 }

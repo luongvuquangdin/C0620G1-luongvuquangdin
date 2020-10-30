@@ -1,6 +1,6 @@
-package com.blog.blog.service;
+package com.ajax.service;
 
-import com.blog.blog.entity.Blog;
+import com.ajax.entity.Blog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,4 +12,6 @@ public interface BlogService {
     void save(Blog blog);
     void update(Blog blog);
     void delete(Integer id);
+    List<Blog> findAll();
+    List<Blog> findAllByCategory_NameCategory(String name);
 }

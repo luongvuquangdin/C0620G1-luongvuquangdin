@@ -1,6 +1,6 @@
-package com.blog.blog.service;
+package com.restfull.service;
 
-import com.blog.blog.entity.Blog;
+import com.restfull.entity.Blog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,4 +12,5 @@ public interface BlogService {
     void save(Blog blog);
     void update(Blog blog);
     void delete(Integer id);
+    List<Blog> findAll();
 }

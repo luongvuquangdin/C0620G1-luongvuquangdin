@@ -1,0 +1,10 @@
+POST http://localhost:8080/add
+Accept: application/json
+ {
+        "id": 5,
+        "name": "Hồ Quỳnh Mai",
+        "age": 16,
+        "phone": "0776401281"
+    }
+
+###
