@@ -49,4 +49,9 @@ public class BlogServiceImpl implements BlogService {
         List<Blog> blogs = this.blogRepository.findAllByCategory_NameCategory(name);
         return blogs;
     }
+
+    @Override
+    public List<Blog> displayListBlog(int offset) {
+        return this.blogRepository.displayListBlog(offset);
+    }
 }

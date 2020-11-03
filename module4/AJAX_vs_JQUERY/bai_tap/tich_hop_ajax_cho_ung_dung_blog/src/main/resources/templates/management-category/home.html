@@ -12,13 +12,21 @@
             border:1px solid black;
             color: white;
         }
+        table,tr,th,td{
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
 
     <input type="search" id="nameCategory">
     <input type="button" value="Search" id="summitSearch">
-<p id="tableBlog"></p>
+    <p id="tableBlog"></p>
+    <table>
+        <thead id="listBlog"></thead>
+    </table>
+    <input type="button" value="display old" id="scrollListOld">
 <!--<a class="idButtonCategory" th:href="@{/management_category}">Management Category</a>-->
 <!--<a class="idButtonCategory" th:href="@{/blog/create}">Create New Blog</a>-->
 <!--<table>-->
@@ -26,9 +34,47 @@
 <!--        <li th:each="category : ${listCategory}"><a th:href="@{/blog/(id=${category.idCategory})}" th:text="${category.nameCategory}"></a></li>-->
 <!--    </ul>-->
 <!--</table>-->
-<script src="bootstrap-4.0.0-dist/js/jquery-3.5.1.min.js"></script>
-<script>
+    <script src="../../static/bootstrap-4.0.0-dist/js/jquery-3.5.1.min.js"></script>
+    <script>
     $(document).ready(function() {
+        let offset=0;
+        let data= '    <tr>\n' +
+            '        <th>#</th>\n' +
+            '        <th>Theme</th>\n' +
+            '        <th>Last updated</th>\n' +
+            '        <th>Category</th>\n' +
+            '    </tr>\n';
+        scrollList(offset);
+        function scrollList(parameter){
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "GET",
+                // data: {"id": idStudent},
+                // http://localhost:8080/list/blog_of_category/
+                url: "http://localhost:8080/list_scroll/" + offset,
+                success: function (listBlogLimit) {
+                    for (let blog of listBlogLimit){
+                        data+='<tr>' +
+                            '<td>'+blog.idBlog+'</td>'+
+                            '<td>'+blog.theme+'</td>'+
+                            '<td>'+blog.date+'</td>'+
+                            '<td>'+blog.category.nameCategory+'</td>'+
+                            '</tr>'
+                    }
+                    $('#listBlog').html(data);
+                },
+                error: function (content) {
+                    $("#tableBlog").val('b');
+                    console.log(content);
+                }            });
+        }
+        $("#scrollListOld").click(function () {
+            offset+=5;
+            scrollList(offset);
+        });
         $("#summitSearch").click(function () {
 
             let nameCategory = $('#nameCategory').val();
@@ -42,7 +88,7 @@
                 // http://localhost:8080/list/blog_of_category/
                 url: "http://localhost:8080/search_list_blog/" + nameCategory,
                 success: function (listBlog) {
-                    let data='<table>\n' +
+                    let tableSearch='<table>\n' +
                         '    <tr>\n' +
                         '        <th>#</th>\n' +
                         '        <th>Theme</th>\n' +
@@ -50,16 +96,15 @@
                         '        <th>Category</th>\n' +
                         '    </tr>\n';
                     for (let blog of listBlog){
-                        data+='<tr>' +
+                        tableSearch+='<tr>' +
                                 '<td>'+blog.idBlog+'</td>'+
                                 '<td>'+blog.theme+'</td>'+
                                 '<td>'+blog.date+'</td>'+
                                 '<td>'+blog.category.nameCategory+'</td>'+
                             '</tr>'
                     }
-                    data+='</table>';
-                    console.log(listBlog);
-                    $('#tableBlog').html(data);
+                    tableSearch+='</table>';
+                    $('#tableBlog').html(tableSearch);
                 },
                 error: function (content) {
                     $("#tableBlog").val('b');

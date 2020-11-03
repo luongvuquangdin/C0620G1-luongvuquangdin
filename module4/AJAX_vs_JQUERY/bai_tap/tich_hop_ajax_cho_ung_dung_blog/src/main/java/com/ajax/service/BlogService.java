@@ -14,4 +14,5 @@ public interface BlogService {
     void delete(Integer id);
     List<Blog> findAll();
     List<Blog> findAllByCategory_NameCategory(String name);
+    List<Blog> displayListBlog(int offset);
 }

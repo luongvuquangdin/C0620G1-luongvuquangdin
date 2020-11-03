@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table,th,tr,td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        a {
+            text-decoration:none;
+        }
+
+        #home{
+            background-color: red;
+            border: 1px solid black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<th:block th:replace="~{menu_welcome::headerStudent}"></th:block>
+<h2><a id="home" th:href="@{/list}">Home</a></h2>
+<h1>List Customer</h1>
+<h2><a th:href="@{/blog/create}">Create New Blog</a></h2>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Theme</th>
+        <th>Last updated</th>
+        <th>Category</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog : ${listBlog}">
+        <td th:text="${blog.idBlog}"></td>
+        <td ><a th:href="@{/blog/info(id=${blog.idBlog})}" th:text="${blog.theme}"></a></td>
+        <td th:text="${blog.date}"></td>
+        <td th:text="${blog.category.nameCategory}"></td>
+        <td><a th:href="@{/blog/delete/{id}(id=${blog.idBlog})}">Delete</a></td>
+        <td><a th:href="@{/blog/edit(id=${blog.idBlog})}">Update</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{text.list.customer}">Title</title>
+    <style>
+        table,th,tr,td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        a {
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+<h1 th:text="#{text.list.customer}">List Customer</h1>
+<h2><a th:href="@{/create}" th:text="#{text.create}">Create New Customer</a></h2>
+<table>
+    <tr>
+        <th th:text="#{text.id}">Id</th>
+        <th th:text="#{text.firs.name}">FirstName</th>
+        <th th:text="#{text.last.name}">LastName</th>
+        <th th:text="#{text.edit}">Edit</th>
+        <th th:text="#{text.delete}">Delete</th>
+        <th th:text="#{text.update}">Update</th>
+    </tr>
+    <tr th:each="customer : ${listCustomer}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+        <td><a th:href="@{/edit(id=${customer.id})}" th:text="#{text.edit}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${customer.id})}" th:text="#{text.delete}">Delete</a></td>
+        <td><a th:href="@{/update(id=${customer.id})}" th:text="#{text.update}">Update</a></td>
+    </tr>
+</table>
+</body>
+</html>

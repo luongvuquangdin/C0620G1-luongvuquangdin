@@ -45,4 +45,9 @@ public class RESTfulController {
     public ResponseEntity<List<Blog>> search(@PathVariable String name){
         return new ResponseEntity<>(this.blogService.findAllByCategory_NameCategory(name),HttpStatus.OK);
     }
+
+    @GetMapping("/list_scroll/{offset}")
+    public ResponseEntity<List<Blog>> viewListScroll(@PathVariable int offset){
+        return new ResponseEntity<>(this.blogService.displayListBlog(offset),HttpStatus.OK);
+    }
 }

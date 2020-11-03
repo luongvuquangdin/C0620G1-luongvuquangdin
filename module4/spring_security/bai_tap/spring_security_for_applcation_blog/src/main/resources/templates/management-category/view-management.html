@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table,th,tr,td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        a {
+            text-decoration:none;
+
+        }
+        #home{
+            background-color: red;
+            border: 1px solid black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<th:block th:replace="~{menu_welcome::headerStudent}"></th:block>
+<h1>List Category</h1>
+<h2><a id="home" th:href="@{/list}">Home</a></h2>
+<h2><a th:href="@{/create}">Create New Category</a></h2>
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name Category</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="category : ${listCategory}">
+        <td scope="row" th:text="${category.idCategory}"></td>
+        <td th:text="${category.nameCategory}"></td>
+        <td><a th:href="@{/delete/(id=${category.idCategory})}">Delete</a></td>
+        <td><a th:href="@{/edit(id=${category.idCategory})}">Update</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
