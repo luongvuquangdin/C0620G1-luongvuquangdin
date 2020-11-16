@@ -77,7 +77,7 @@
                 </td>
             </tr>
             <tr>
-                <td><label for="rentTypeId">position Id: </label></td>
+                <td><label for="rentTypeId">Rent type: </label></td>
                 <td>
                     <select name="rentTypeId" id="rentTypeId">
                         <c:forEach var="rentType" items="${rentTypeList}">
@@ -94,7 +94,7 @@
                 </td>
             </tr>
             <tr>
-                <td><label for="serviceTypeId">educationDegree Id: </label></td>
+                <td><label for="serviceTypeId">Service Type: </label></td>
                 <td>
                     <select name="serviceTypeId" id="serviceTypeId">
                         <c:forEach var="serviceType" items="${serviceTypeList}">

@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class CategoryController {
     @Autowired
@@ -31,6 +33,9 @@ public class CategoryController {
     @Autowired
     UserRoleService userRoleService;
 
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @GetMapping("/")
     public String goToHome(){
         return "welcome";
@@ -44,14 +49,22 @@ public class CategoryController {
 
     @PostMapping("/registration")
     public String registrationUser(@ModelAttribute AppUser appUser,@RequestParam Long[] role) {
-        BCryptPasswordEncoder encode=new BCryptPasswordEncoder();
-        String pass=encode.encode(appUser.getEncrytedPassword());
+        List<AppUser> list=this.appUserService.findAll();
+        for (AppUser user:list){
+            if (user.getUserName().equals(appUser.getUserName())){
+                return "welcome";
+            }
+        }
+//        BCryptPasswordEncoder encode=new BCryptPasswordEncoder();
+        String pass=bCryptPasswordEncoder.encode(appUser.getEncrytedPassword());
         appUser.setEncrytedPassword(pass);
         this.appUserService.save(appUser);
         AppUser appUser1=this.appUserService.findByUserName(appUser.getUserName());
         for (int i=0;i<role.length;i++){
-            this.userRoleService.save(appUser1,role[i].longValue());
+            this.userRoleService.save(appUser,role[i].longValue());
         }
+        System.out.println(appUser.getUserId());
+
         return "welcome";
     }
     @GetMapping("/list")

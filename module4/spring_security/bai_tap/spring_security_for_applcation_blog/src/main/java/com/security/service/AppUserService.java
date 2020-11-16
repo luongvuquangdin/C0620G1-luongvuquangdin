@@ -7,4 +7,5 @@ import java.util.List;
 public interface AppUserService {
     AppUser findByUserName(String userName);
     void save(AppUser appUser);
+    List<AppUser> findAll();
 }

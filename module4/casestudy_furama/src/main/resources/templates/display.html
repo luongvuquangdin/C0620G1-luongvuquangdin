@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Trang chủ</title>
+    <th:block th:fragment="headTemplate">
+<!--    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"-->
+<!--          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>-->
+<!--    <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css" />-->
+<!--    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css" />-->
+    <link rel="stylesheet" th:href="@{/bootstrap-4.0.0-dist/css/bootstrap.min.css}">
+    <style>
+        #head {
+            font-size: 13px;
+            height: 25vh;
+        }
+
+        #border-1 {
+            border-top-color: green;
+            border-width: 5px 1px 1px 1px;
+            border-style: solid;
+        }
+        #bodyfurama{
+            background-image: linear-gradient(to bottom,rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 100%), url("https://furamavietnam.com/wp-content/uploads/2019/07/Vietnam_Danang_Furama_Resort_Exterior_Ocean-Pool-6.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 100vh;
+        }
+        label{
+            color: white;
+        }
+    </style>
+    </th:block>
+</head>
+<body>
+
+<!--head-->
+
+<div class="container-fluid">
+    <div th:fragment="headContent" class="row pt-lg-2 border border-dark" id="head">
+        <div class="col-lg-3 text-center">
+            <a th:href="@{/}"><img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png"
+                                 height="150vh" id="logoFurama"></a>
+        </div>
+        <div class="col-lg-2">
+            <div class="pb-lg-4 pt-lg-4 pl-lg-4" id="border-1">
+                <div class="row" style="height: 15%">
+                    <div class="col-lg-12">
+                        <img src="https://smartdata.tonytemplates.com/bestel/wp-content/uploads/2018/05/widget-tripadvisor-logo.png"
+                             height="75%" >
+                    </div>
+                </div>
+                <div class="row" style="height: 15%">
+                    <div class="col-lg-12">
+                        <img src="https://furamavietnam.com/wp-content/uploads/2018/08/widget-tripadvisor-rating.png"
+                             height="75%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12" style="height: 30%">
+                        2,746 Reviews
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3" style="height: 100%">
+            <div class="row">
+                <div class="col-lg-2 pr-lg-0 text-right"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="col-lg-10">
+                    <p>103 – 105 Đường Võ Nguyên Giáp, Phường Khuê Mỹ, Quận Ngũ hành Sơn, Tp. Đà Nẵng, Việt Nam</p>
+                    <p>7.0 km từ Sân bay Quốc tế Đà Nẵng</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4" style="height: 100%">
+            <div class="row">
+                <div class="col-lg-6">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>84-236-3847 333/888</span>
+                    <br>
+                    <i class="fas fa-envelope"></i>
+                    <span>reservation@furamavietnam.com</span>
+                </div>
+                <div class="col-lg-6">
+                    <th:block sec:authorize="isAuthenticated()">
+                        <p>Welcome: <span sec:authentication="name"></span></p>
+                        <form action="/logout">
+                            <input type="submit" value="Logout">
+                        </form>
+                    </th:block>
+                    <th:block sec:authorize="isAnonymous()">
+                        <form action="/login">
+                            <input type="submit" value="Login">
+                        </form>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+    </div >
+
+
+<!--Thanh home-->
+    <div th:fragment="homeContent" class="row bg-light border border-dark">
+        <div class="col-lg-12">
+            <ul class="nav justify-content-between bg-light">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" th:href="@{/}">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-dark" th:href="@{/customers}">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-dark" th:href="@{/employees}">Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-dark" th:href="@{/services}">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-dark" th:href="@{/contracts}">Contract</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-dark" th:href="@{/contractDetails}">Contract-detail</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<!--    body-->
+    <div class="row" id="bodyfurama">
+        <div th:fragment="itemBody" class="col-lg-1 border border-dark">
+            <nav class="nav flex-column">
+                <a class="nav-link  text-white" href="#">Bạn không thấy gì ở đây</a>
+                <a class="nav-link  text-white" href="#">Bạn không thấy gì ở đây</a>
+                <a class="nav-link  text-white" href="#">Bạn không thấy gì ở đây</a>
+                <a class="nav-link  text-white" href="#">Bạn không thấy gì ở đây</a>
+                <a class="nav-link  text-white" href="#">Bạn không thấy gì ở đây</a>
+            </nav>
+        </div>
+        <div class="col-lg-11">
+        </div>
+    </div>
+</div>
+<th:block th:replace="~{fragment_link_bootstrap::bootstrap-script}"></th:block>
+<script th:fragment="anomation">
+    $(document).ready(function () {
+        $("#logoFurama").mouseenter(function () {
+            $("#logoFurama").animate({width:'toggle'});
+            $("#logoFurama").trigger('mouseenter')
+        });
+        $("#logoFurama").trigger('mouseenter');
+    })
+</script>
+</body>
+</html>

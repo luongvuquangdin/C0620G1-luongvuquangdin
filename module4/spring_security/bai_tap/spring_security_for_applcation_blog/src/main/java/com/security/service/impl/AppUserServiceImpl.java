@@ -21,4 +21,9 @@ public class AppUserServiceImpl implements AppUserService {
     public void save(AppUser appUser) {
         this.appUserRepository.save(appUser);
     }
+
+    @Override
+    public List<AppUser> findAll() {
+        return this.appUserRepository.findAll();
+    }
 }

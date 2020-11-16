@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>List Services</title>
+    <th:block th:replace="~{display::headTemplate}"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+    <th:block th:replace="~{display::headContent}"></th:block>
+    <th:block th:replace="~{display::homeContent}"></th:block>
+    <div class="row" id="bodyfurama">
+        <th:block th:replace="~{display::itemBody}"></th:block>
+        <div class="col-lg-11">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 sec:authorize="isAuthenticated()">
+                        <a th:href="@{/services/create}">Add New Service</a>
+                    </h2>
+                    <table id="tableService" class="table table-bordered table-light border border-dark text-dark" style="width:100%">
+                        <thead>
+                        <h2>List of Service</h2>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Area</th>
+                            <th>Cost</th>
+                            <th>MaxPeople</th>
+                            <th>Standard Room</th>
+                            <th>Description Other Convenience</th>
+                            <th>Pool Area</th>
+                            <th>Number Of Floors</th>
+                            <th>Rent Type Name</th>
+                            <th>Service Type Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="service : ${serviceList}">
+                            <td th:text="${service.serviceId}"></td>
+                            <td th:text="${service.serviceName}"></td>
+                            <td th:text="${service.serviceArea}"></td>
+                            <td th:text="${service.serviceCost}"></td>
+                            <td th:text="${service.serviceMaxPeople}"></td>
+                            <td th:text="${service.standardRoom}"></td>
+                            <td th:text="${service.descriptionOtherConvenience}"></td>
+                            <td th:text="${service.poolArea}"></td>
+                            <td th:text="${service.numberOfFloors}"></td>
+                            <td th:text="${service.rentTypeService.rentTypeName}"></td>
+                            <td th:text="${service.serviceTypeOfService.serviceTypeName}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: right" th:if="${serviceList.totalPages!=0}">
+                    <a th:if="${serviceList.hasPrevious()}" th:href="@{/services(page=${serviceList.number - 1})}"
+                       style="color: white">Previous</a>
+                    <span style="color: white" th:text="${serviceList.number+1}"></span><span style="color: white">/</span>
+                    <span style="color: white" th:text="${serviceList.totalPages}"></span>
+                    <a th:if="${serviceList.hasNext()}" th:href="@{/services(page=${serviceList.number + 1})}"
+                       style="color: white">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:replace="~{fragment_link_bootstrap::bootstrap-script}">
+</th:block>
+<th:block th:replace="~{display::anomation}"></th:block>
+</body>
+</html>

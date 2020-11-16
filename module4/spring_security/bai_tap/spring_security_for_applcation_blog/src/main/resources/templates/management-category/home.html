@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -16,7 +17,7 @@
 </head>
 <body>
 <th:block th:replace="~{menu_welcome::headerStudent}"></th:block>
-<a class="idButtonCategory" th:href="@{/management_category}">Management Category</a>
+<th:block sec:authorize="hasAuthority('ADMIN')"><a class="idButtonCategory" th:href="@{/management_category}">Management Category</a></th:block>
 <a class="idButtonCategory" th:href="@{/blog/create}">Create New Blog</a>
 <table>
     <ul   >

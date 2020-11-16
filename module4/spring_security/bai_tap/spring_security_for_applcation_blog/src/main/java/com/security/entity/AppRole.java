@@ -1,7 +1,8 @@
 package com.security.entity;
 
-import javax.persistence.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.*;
 @Entity
 @Table(name = "App_Role", //
         uniqueConstraints = { //
@@ -31,5 +32,7 @@ public class AppRole {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
+
+
 
 }

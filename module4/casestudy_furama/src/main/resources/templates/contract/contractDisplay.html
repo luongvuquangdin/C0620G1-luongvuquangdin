@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>List Contract</title>
+    <th:block th:replace="~{display::headTemplate}"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+    <th:block th:replace="~{display::headContent}"></th:block>
+    <th:block th:replace="~{display::homeContent}"></th:block>
+    <div class="row" id="bodyfurama">
+        <th:block th:replace="~{display::itemBody}"></th:block>
+        <div class="col-lg-11">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 sec:authorize="isAuthenticated()">
+                        <a th:href="@{/contracts/create}">Add New contract</a>
+                    </h2>
+                    <table id="tableContract" class="table table-bordered table-light border border-dark text-dark" style="width:100%">
+                        <thead>
+                        <h2>List of contract</h2>
+                        <tr>
+                            <th>ID</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Deposit</th>
+                            <th>Total Money</th>
+                            <th>Employee name</th>
+                            <th>Customer name</th>
+                            <th>Service Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="contract : ${contractList}">
+                            <td th:text="${contract.contractId}"></td>
+                            <td th:text="${contract.contractStartDate}"></td>
+                            <td th:text="${contract.contractEndDate}"></td>
+                            <td th:text="${contract.contractDeposit}"></td>
+                            <td th:text="${contract.contractTotalMoney}"></td>
+                            <td th:text="${contract.employee.employeeName}"></td>
+                            <td th:text="${contract.customer.customerName}"></td>
+                            <td th:text="${contract.service.serviceName}"></td>
+<!--                            <td>-->
+<!--                                <a href="/customers?actionCustomer=edit&idCustomer=${customers.customerId}">Edit</a>-->
+<!--                                <a href="#" onclick="customerSetId('${customers.customerId}')" data-toggle="modal"-->
+<!--                                   data-target="#deleteModel">Delete</a>-->
+<!--                            </td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:replace="~{fragment_link_bootstrap::bootstrap-script}">
+</th:block>
+<th:block th:replace="~{display::anomation}"></th:block>
+</body>
+</html>

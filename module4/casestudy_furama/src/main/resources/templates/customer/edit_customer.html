@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create new customer</title>
+    <th:block th:replace="~{display::headTemplate}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{display::headContent}"></th:block>
+<th:block th:replace="~{display::homeContent}"></th:block>
+<div class="row" id="bodyfurama">
+    <th:block th:replace="~{display::itemBody}"></th:block>
+    <div class="col-lg-11">
+        <div class="row">
+            <div class="col-lg-12">
+<h1>Edit new customer</h1>
+<!--<p>-->
+<!--    <c:if test='${message!= null}'>-->
+<!--        <span class="message">${message}</span>-->
+<!--    </c:if>-->
+<!--</p>-->
+<p>
+    <a th:href="@{/customers}">Back to customer list</a>
+</p>
+<form th:action="@{/customers/edit}" method="post" th:object="${customer}">
+    <input type="hidden" th:field="*{customerId}">
+    <fieldset>
+        <legend>Customer information</legend>
+        <table>
+            <tr>
+                <td><label for="Name">Name: </label></td>
+                <td><input type="text" th:field="*{customerName}" id="Name">
+                    <p th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"
+                       style="color: red"></p>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Birthday">Birthday: </label></td>
+                <td><input type="date" th:field="*{customerBirthday}" id="Birthday">
+                    <p th:if="${#fields.hasErrors('customerBirthday')}" th:errors="*{customerBirthday}"
+                       style="color: red"></p>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Gender">Gender: </label></td>
+                <td><input type="text" th:field="*{customerGender}" id="Gender">
+                    <p th:if="${#fields.hasErrors('customerGender')}" th:errors="*{customerGender}"
+                       style="color: red"></p>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="IdCard">IdCard: </label></td>
+                <td><input type="text" th:field="*{customerIdCard}" id="IdCard">
+                    <p th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}"
+                       style="color: red"></p>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Phone">Phone: </label></td>
+                <td><input type="text" th:field="*{customerPhone}" id="Phone">
+                    <p th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}"
+                       style="color: red"></p>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Email">Email: </label></td>
+                <td><input type="text" th:field="*{customerEmail}" id="Email">
+                    <p th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}"
+                       style="color: red"></p>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Address">Address: </label></td>
+                <td><input type="text" th:field="*{customerAddress}" id="Address">
+                    <p th:if="${#fields.hasErrors('customerAddress')}" th:errors="*{customerAddress}"
+                       style="color: red"></p>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="typeId">TypeId: </label></td>
+                <td>
+                    <select th:field="*{customerType}" id="typeId">
+                        <option th:each="customerType : ${customerTypeList}" th:value="${customerType.customerTypeId}" th:text="${customerType.customerTypeName}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Save"></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

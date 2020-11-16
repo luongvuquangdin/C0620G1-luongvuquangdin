@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>List Customer</title>
+    <th:block th:replace="~{display::headTemplate}"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+<th:block th:replace="~{display::headContent}"></th:block>
+<th:block th:replace="~{display::homeContent}"></th:block>
+<div class="row" id="bodyfurama">
+    <th:block th:replace="~{display::itemBody}"></th:block>
+    <div class="col-lg-11">
+        <div class="row">
+            <div class="col-lg-12">
+                    <h2 sec:authorize="isAuthenticated()">
+                        <a th:href="@{/customers/create}">Add New Customer</a>
+                    </h2>
+                    <form th:action="@{/customers}" method="get">
+                        <input type="text" name="keyWord" placeholder="Enter to customer name" th:value="${keyWord}">
+                        <input type="submit" value="Search">
+                    </form>
+                    <table id="tableCustomer" class="table table-bordered table-light border border-dark text-dark"
+                           style="width:100%">
+                        <thead>
+                        <h2>List of Cusomter</h2>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                            <th>Gender</th>
+                            <th>Id Card</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Type Id</th>
+                            <th sec:authorize="isAuthenticated()">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="customers : ${customerList}">
+                            <td th:text="${customers.customerId}"></td>
+                            <td th:text="${customers.customerName}"></td>
+                            <td th:text="${customers.customerBirthday}"></td>
+                            <td th:text="${customers.customerGender}"></td>
+                            <td th:text="${customers.customerIdCard}"></td>
+                            <td th:text="${customers.customerPhone}"></td>
+                            <td th:text="${customers.customerEmail}"></td>
+                            <td th:text="${customers.customerAddress}"></td>
+                            <td th:text="${customers.customerType.customerTypeName}"></td>
+                            <td sec:authorize="isAuthenticated()">
+                                <a th:href="@{/customers/edit(idCustomer=${customers.customerId})}">Edit</a>
+                                <a href="#" data-toggle="modal"
+                                   data-target="#deleteModel" th:onclick="deleteCustomer([[${customers.customerId}]])">Delete</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: right" th:if="${customerList.totalPages!=0}">
+                        <a th:if="${customerList.hasPrevious()}" th:href="@{/customers(page=${customerList.number -1},
+                        keyWord=${keyWord})}"
+                           style="color: white">Previous</a>
+                        <span th:text="${customerList.number + 1}"  style="color: white"></span><span
+                            style="color: white">/</span><span th:text="${customerList.totalPages}"  style="color: white"></span>
+                        <a th:if="${customerList.hasNext()}" th:href="@{/customers(page=${customerList.number +1},
+                         keyWord=${keyWord})}" style="color: white">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <form th:action="@{/customers/delete}" method="post">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+                <div class="modal-body">
+                    <input type="text" id="modelId" size="50" readonly style="border: none;background: white"
+                           name="idOfCustomer">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+        </div>
+    </div>
+    </form>
+</div>
+<th:block th:replace="~{fragment_link_bootstrap::bootstrap-script}">
+</th:block>
+<th:block th:replace="~{display::anomation}"></th:block>
+<script>
+    function deleteCustomer(id) {
+        document.getElementById("modelId").value = id;
+    }
+</script>
+</body>
+</html>
