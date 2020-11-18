@@ -1,0 +1,4 @@
+<h1>Change Color</h1>
+<input type="color" [value]="color" (change)="changeColor($event.target.value)">
+
+<h1 style="height: 200px;width: 200px" [style.background]="color"></h1>

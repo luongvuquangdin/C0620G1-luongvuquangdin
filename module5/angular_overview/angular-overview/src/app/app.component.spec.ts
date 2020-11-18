@@ -23,7 +23,8 @@ describe('AppComponent', () => {
   it(`should have as title 'angular-overview'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-overview');
+    // @ts-ignore
+    expect(app.fontSize).toEqual('angular-overview');
   });
 
   it('should render title', () => {
