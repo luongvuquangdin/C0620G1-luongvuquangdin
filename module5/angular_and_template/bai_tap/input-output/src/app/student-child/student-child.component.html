@@ -1,0 +1,21 @@
+<div *ngIf="studentChile">
+<div class="card" style="width: 18rem;">
+  <h1 class="card-img-top" style="text-align: center">{{studentChile.name}}</h1>
+  <div class="card-body">
+    <label>Id: </label>
+    <p class="card-text">{{studentChile.id}}</p>
+    <label>Age: </label><br>
+    <input type="text" #age class="card-text" [value]="studentChile.age"><br>
+    <label>Mark: </label><br>
+    <input type="number" #mark min="0" max="10" class="card-text"  [value]="studentChile.mark"><br>
+    <button type="button" class="btn btn-primary" (click)="changeInfo(age , mark)">Save</button>
+  </div>
+</div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>{{studentChile.age}}</p>
+  <p>{{studentChile.mark}}</p>
+</div>
+

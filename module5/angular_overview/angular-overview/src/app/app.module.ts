@@ -8,6 +8,7 @@ import { PetComponent} from './img.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import {FormsModule} from '@angular/forms';
 import { ColorPicketComponent } from './color-picket/color-picket.component';
+import { CountDownTimerComponent } from './count-down-timer-component/count-down-timer.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ColorPicketComponent } from './color-picket/color-picket.component';
     FontSizeComponent,
     PetComponent,
     CalculatorComponent,
-    ColorPicketComponent
+    ColorPicketComponent,
+    CountDownTimerComponent
   ],
   imports: [
     BrowserModule,
